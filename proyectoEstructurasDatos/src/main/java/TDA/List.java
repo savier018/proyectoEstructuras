@@ -10,7 +10,11 @@ public interface List<E> {
     
     public boolean addFirst(E element);
     
+     public boolean add(E element, int index);
+    
     public boolean addLast(E element);
+    
+    public E get(int index);
     
     public boolean removeFirst();
     
