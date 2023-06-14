@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import Modelo.Usuario;
 
 
+
 /**
  * FXML Controller class
  *
@@ -43,9 +44,11 @@ public class InicioSesionController implements Initializable {
         for(int i= 0;i<usuarioLista.size(); i++){ //recorre la lista usuario en donde si pertence a un nivel lo lleve a la interfaz de ese
             Usuario u = usuarioLista.get(i); 
             if(user.equals(u.getUsuario()) && pass.equals(u.getContraseña())){
-                    //PantallaUsuario.setNombreUsuario(user);
-                    try {                   
-                        App.setRoot("pantallaUsuario");
+                    PantallaUsuario1Controller.setNombreUsuario(user);
+                    PantallaUsuario1Controller.setUsuario(u);
+                    try {       
+                        
+                        App.setRoot("pantallaUsuario1");
                     } 
                     catch (IOException ex) {
                         iniciarSesion.setDisable(true);

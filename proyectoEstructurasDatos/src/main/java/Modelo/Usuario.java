@@ -1,6 +1,6 @@
 package Modelo;
 
-//import TDA.CDLinkedList;
+import TDA.LinkedList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ public class Usuario {
     private String usuario;
     private String contraseña;
     private ArrayList<Usuario> userList;
-  //  private CDLinkedList<Emoji> coleccionEmojis;
+    public LinkedList<Emoji> coleccionEmojis;
   //  private CDLinkedList<Image> componentesAdicionales;
 
     public Usuario(String usuario, String contraseña) {
