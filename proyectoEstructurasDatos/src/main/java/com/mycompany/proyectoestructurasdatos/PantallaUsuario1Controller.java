@@ -37,6 +37,8 @@ public class PantallaUsuario1Controller implements Initializable {
     private Button nuevobtn;
     @FXML
     private Button seguirbtn;
+    @FXML
+    private Button volverbtn;
     /**
      * Initializes the controller class.
      */
@@ -50,9 +52,10 @@ public class PantallaUsuario1Controller implements Initializable {
     }    
     
     @FXML
-    public void nuevo(ActionEvent event)throws IOException {
+    public void nuevo()throws IOException {
         // TODO
     }   
+    
      
     @FXML
     public void seguir()throws IOException {
@@ -71,5 +74,17 @@ public class PantallaUsuario1Controller implements Initializable {
     public static void setUsuario(Usuario usuario) {
         user = usuario;
     }
+    
+    
+    @FXML
+    public void volver()throws IOException {
+        try {                          
+            App.setRoot("inicioSesion");
+            } 
+        catch (IOException ex) {
+            
+            }    
+    }           
+    
     
 }

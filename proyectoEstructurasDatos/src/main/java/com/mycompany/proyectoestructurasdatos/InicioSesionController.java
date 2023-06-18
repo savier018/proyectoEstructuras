@@ -10,12 +10,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import Modelo.Usuario;
+import javafx.event.ActionEvent;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
 
 
 
 /**
  * FXML Controller class
- *
+ 
  * @author fnand
  */
 public class InicioSesionController implements Initializable {
@@ -24,15 +27,21 @@ public class InicioSesionController implements Initializable {
     @FXML
     private TextField usuario;
     @FXML
-    private TextField clave;
+    private PasswordField clave;
     @FXML
-    private Button iniciarSesion;
+    private TextField clavetf1;
+    @FXML
+    private CheckBox vistaclave;
+    @FXML
+    private Button iniciarSesionbtn;
+    @FXML
+    private Button registrobtn;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        this.visible(null);
     }    
     
     @FXML
@@ -51,7 +60,7 @@ public class InicioSesionController implements Initializable {
                         App.setRoot("pantallaUsuario1");
                     } 
                     catch (IOException ex) {
-                        iniciarSesion.setDisable(true);
+                        iniciarSesionbtn.setDisable(true);
                     }
                 
                 cont++; 
@@ -70,4 +79,27 @@ public class InicioSesionController implements Initializable {
         }
     }
 
+     @FXML
+    public void visible(ActionEvent event){
+        if(vistaclave.isSelected()){
+            clavetf1.setText(clave.getText());
+            clavetf1.setVisible(true);
+            clave.setVisible(false);
+            return;
+        }
+        clave.setText(clavetf1.getText());
+        clave.setVisible(true);
+        clavetf1.setVisible(false);
+    }
+    
+    @FXML
+    public void registrar() throws IOException{
+        try{
+            App.setRoot("nuevoUsuario");    
+        }
+        catch (IOException ex) {
+            registrobtn.setDisable(true);
+        }
+        
+    }
 }

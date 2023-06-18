@@ -1,4 +1,4 @@
-usuario,contraseña
+Usuario,Contrase�a
 admin1,12345678
 alopez,al123456
 mcastro,mc123456
