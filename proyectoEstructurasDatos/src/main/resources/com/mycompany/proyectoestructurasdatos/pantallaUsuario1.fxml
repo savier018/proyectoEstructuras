@@ -6,7 +6,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<<<<<<< HEAD
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -46,19 +45,5 @@
             <Button fx:id="seguirbtn" mnemonicParsing="false" onAction="#seguir" onMouseClicked="#seguir" prefHeight="25.0" prefWidth="71.0" text="Next" />
          </items>
       </ToolBar>
-=======
-<?import javafx.scene.text.Font?>
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectoestructurasdatos.PantallaUsuario1Controller">
-   <children>
-      <Button fx:id="nuevobtn" layoutX="165.0" layoutY="175.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="50.0" prefWidth="79.0" text="+new" />
-      <Button fx:id="seguirbtn" layoutX="345.0" layoutY="175.0" mnemonicParsing="false" onAction="#seguir" onMouseClicked="#seguir" prefHeight="50.0" prefWidth="79.0" text="seguir" />
-      <TextField fx:id="textNombre" layoutX="91.0" layoutY="54.0" />
-      <Button fx:id="volverbtn" alignment="CENTER_RIGHT" layoutX="42.0" layoutY="328.0" mnemonicParsing="false" onAction="#volver" prefHeight="40.0" prefWidth="99.0" text="Volver">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
->>>>>>> df186a1cfed801bab7c56e0d07eb50cccc45c7a5
    </children>
 </AnchorPane>

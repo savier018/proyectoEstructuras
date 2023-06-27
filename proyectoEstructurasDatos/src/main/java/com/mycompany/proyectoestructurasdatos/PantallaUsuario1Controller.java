@@ -66,6 +66,7 @@ public class PantallaUsuario1Controller implements Initializable {
     private EmojiImage Face;
     private EmojiImage Eyes;
     private EmojiImage Mouth;
+
     /**
      * Initializes the controller class.
      */
