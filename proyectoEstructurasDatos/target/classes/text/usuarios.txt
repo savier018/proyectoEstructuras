@@ -1,0 +1,5 @@
+usuario,contraseña
+admin1,12345678
+alopez,al123456
+mcastro,mc123456
+mbarcos,mb123456

@@ -24,34 +24,16 @@ public class EmojiImage {
         return name;
     }
 
-    public Image getImagerute() {
+    public Image getImage() {
         return Eimage;
     }
 
-    public void setImagerute(Image imagerute) {
-        this.Eimage = imagerute;
+    public void setImage(Image image) {
+        this.Eimage = image;
     }
 
     public void setName(String name) {
         this.name = name;
     }
     
-    public LinkedList<EmojiImage> loadImages(String Type){
-    LinkedList<EmojiImage> images= new LinkedList();    
-    try{
-    BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Win1OPro Station\\Documents\\NetBeansProjects\\SpaceAdventure\\src\\main\\resources\\Data\\Items.txt"));
-     String linea;
-     while((linea=br.readLine())!=null){
-     String[] datos= linea.split("/");
-     String url= datos[1];
-     Image img= new Image("Images."+Type.toLowerCase()+url);       
-     EmojiImage f= new EmojiImage(datos[0],img);
-     images.addLast(f);
-     }
-    }
-    catch(Exception e){
-    System.out.println(e);
-    } 
-    return images;
- }
 }

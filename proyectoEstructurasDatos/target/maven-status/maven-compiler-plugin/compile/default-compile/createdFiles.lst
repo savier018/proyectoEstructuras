@@ -1,10 +1,6 @@
 com\mycompany\proyectoestructurasdatos\App.class
-TDA\CDLinkedList.class
+TDA\Node.class
+module-info.class
+TDA\List.class
 Modelo\Usuario.class
 Modelo\Emoji.class
-TDA\CDLinkedList$1.class
-TDA\Node.class
-TDA\List.class
-module-info.class
-com\mycompany\proyectoestructurasdatos\SecondaryController.class
-com\mycompany\proyectoestructurasdatos\PrimaryController.class

@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import TDA.ArrayList;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import javafx.scene.image.Image;
 
 public class Usuario {
@@ -50,6 +52,19 @@ public class Usuario {
             
         }
         return usuarios;
+    }
+    
+     public static void sobreescribirFichero(ArrayList<Usuario> usuarios){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/text/usuarios.txt"));){
+            bw.write("Usuario,Contraseña");
+            for(int i = 0;i<usuarios.size();i++){
+                Usuario u= usuarios.get(i);
+                bw.newLine();
+                bw.write(u.getUsuario()+","+u.getContraseña());
+            }
+        }catch (IOException e){
+            System.out.println("error");
+        }
     }
 
    /* public CDLinkedList<Image> getComponentesAdicionales() {
