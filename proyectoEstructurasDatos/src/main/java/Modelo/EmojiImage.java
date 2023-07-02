@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
  * @author Win1OPro Station
  */
 public class EmojiImage {
-     private String name;
+    private String name;
     private Image Eimage;
 
     public EmojiImage(String name, Image Eimage) {

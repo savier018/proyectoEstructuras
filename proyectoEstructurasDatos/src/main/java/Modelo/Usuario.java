@@ -13,14 +13,12 @@ public class Usuario {
     
     private String usuario;
     private String contraseña;
-    private ArrayList<Usuario> userList;
     public LinkedList<Emoji> coleccionEmojis;
   //  private CDLinkedList<Image> componentesAdicionales;
 
     public Usuario(String usuario, String contraseña) {
         this.usuario = usuario;
         this.contraseña = contraseña;
-        this.userList = new ArrayList<Usuario>();
     }
   
     public String getUsuario() {
@@ -65,6 +63,21 @@ public class Usuario {
         }catch (IOException e){
             System.out.println("error");
         }
+    }
+     
+     public LinkedList<Emoji> cargarListaEmoji(){
+        LinkedList<Emoji> emojis = new LinkedList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(String.format("src/main/resources/text/%s.txt",usuario)));){
+            br.readLine();
+            String linea;
+            while ((linea = br.readLine())!=null){
+                String[] datos = linea.split(","); 
+                //emojis.addLast(new Emoji(datos[0],datos[1],datos[2]));
+            }
+        }catch (IOException e){
+            System.out.println("Texto no encontrado");
+        }
+        return emojis;
     }
 
    /* public CDLinkedList<Image> getComponentesAdicionales() {

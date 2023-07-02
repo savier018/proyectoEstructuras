@@ -22,7 +22,7 @@ import javafx.scene.control.PasswordField;
  * @author fnand
  */
 public class InicioSesionController implements Initializable {
-    ArrayList<Usuario> usuarioLista = Usuario.cargarListaU();
+    static ArrayList<Usuario> usuarioLista = Usuario.cargarListaU();
     
     @FXML
     private TextField usuario;
@@ -55,6 +55,7 @@ public class InicioSesionController implements Initializable {
             if(user.equals(u.getUsuario()) && pass.equals(u.getContraseña())){
                     PantallaUsuario1Controller.setNombreUsuario(user);
                     PantallaUsuario1Controller.setUsuario(u);
+                    //u.cargarListaEmoji();
                     try {       
                         
                         App.setRoot("pantallaUsuario1");
@@ -71,7 +72,7 @@ public class InicioSesionController implements Initializable {
         if(cont==0){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Alerta");
-                alert.setContentText("Su usuario o contraseña son erroneas, intentelo de nuevo");
+                alert.setContentText("Su usuario o contraseña son erroneos, intentelo de nuevo");
 
                 alert.showAndWait();
                 App.setRoot("inicioSesion");
@@ -79,7 +80,7 @@ public class InicioSesionController implements Initializable {
         }
     }
 
-     @FXML
+    @FXML
     public void visible(ActionEvent event){
         if(vistaclave.isSelected()){
             clavetf1.setText(clave.getText());
@@ -102,4 +103,6 @@ public class InicioSesionController implements Initializable {
         }
         
     }
+    
+    
 }

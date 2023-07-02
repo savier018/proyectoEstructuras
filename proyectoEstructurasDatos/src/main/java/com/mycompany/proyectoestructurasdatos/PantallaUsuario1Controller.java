@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.mycompany.proyectoestructurasdatos;
 
 import Modelo.Emoji;
@@ -21,7 +17,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import Modelo.Usuario;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,34 +36,14 @@ public class PantallaUsuario1Controller implements Initializable {
     //FXML
     @FXML
     private TextField textNombre;
-    @FXML
-    private VBox ListContainer;
-    @FXML
-    private HBox ListFaces;
-    @FXML
-    private HBox ListEyes;
-    @FXML
-    private HBox ListMouth;
-    @FXML
-    private Button resetbtn;
-    @FXML
-    private Button acceptbtn;
-    @FXML
-    private Button prevbtn;
-    @FXML
-    private Button nextbtn;
-    
-    
     //Variables and Lists
     static Usuario user;
     static String nombreUsuario;
-    private LinkedList<EmojiImage> lFaces;
-    private LinkedList<EmojiImage> lEyes;
-    private LinkedList<EmojiImage> lMouth;
-    private Emoji emoji;
-    private EmojiImage Face;
-    private EmojiImage Eyes;
-    private EmojiImage Mouth;
+    
+    @FXML
+    private Button seguirbtn;
+    @FXML
+    private Button volverbtn;
 
     /**
      * Initializes the controller class.
@@ -77,15 +55,18 @@ public class PantallaUsuario1Controller implements Initializable {
         /*if (user.coleccionEmojis.isEmpty()){
             seguir.setDisable(true);
         }*/
-        loadLFaces();
-        loadLMouth();
-        loadLEyes();
-        loadToHBox(lFaces,lEyes,lMouth);
+        
     }    
     //Metodos FXML
+      
     @FXML
     public void nuevo()throws IOException {
-        // TODO
+       try (BufferedWriter bw = new BufferedWriter(new FileWriter(String.format("src/main/resources/text/%s.txt",nombreUsuario)));){
+            bw.write("Cara,Ojos,Boca");
+            App.setRoot("nuevoEmoji");
+        }catch (IOException e){
+            System.out.println("error");
+        }
     }   
     
      
@@ -95,61 +76,14 @@ public class PantallaUsuario1Controller implements Initializable {
             App.setRoot("seguir");
             } 
         catch (IOException ex) {
-            acceptbtn.setDisable(true);   
+            seguirbtn.setDisable(true);   
             }    
     }           
-    //Metodos Listas
-    //ARREGLAR BUFFER READER PARA QUE BUSQUE LAS CARPETAS
-    public LinkedList<EmojiImage> loadImages(String Type){
-    LinkedList<EmojiImage> images= new LinkedList();    
-    try{
-    BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Win1OPro Station\\Documents\\NetBeansProjects\\SpaceAdventure\\src\\main\\resources\\Data\\"+Type+".txt"));
-     String linea;
-     while((linea=br.readLine())!=null){
-     String[] datos= linea.split("/");
-     String url= datos[1];
-     Image img= new Image("Images."+Type.toLowerCase()+url);       
-     EmojiImage f= new EmojiImage(datos[0],img);
-     images.addLast(f);
-     }
-    }
-    catch(Exception e){
-    System.out.println(e);
-    } 
-    return images;
- }
-    
-    public void loadLFaces(){
-        lFaces=loadImages("faces");
-    }
-    
-    public void loadLEyes(){
-        lEyes=loadImages("eyes");
-    }
-    public void loadLMouth(){
-        lMouth=loadImages("mouth");
-    }
-    
-    public void loadToHBox(LinkedList<EmojiImage> lF,LinkedList<EmojiImage> lE,LinkedList<EmojiImage> lM){
-        for(EmojiImage f:lF){
-            Image i = f.getImage();
-            ImageView d= new ImageView(i);
-            ListFaces.getChildren().add(d);
-        }
-        for(EmojiImage f:lE){
-            Image i = f.getImage();
-            ImageView d= new ImageView(i);
-            ListEyes.getChildren().add(d);
-        }
-        for(EmojiImage f:lM){
-            Image i = f.getImage();
-            ImageView d= new ImageView(i);
-            ListMouth.getChildren().add(d);
-        }
-    }     
+   
+     
     
     //Metodos variables
-     public static void setNombreUsuario(String nombre) {
+    public static void setNombreUsuario(String nombre) {
         nombreUsuario = nombre;
     }
     
