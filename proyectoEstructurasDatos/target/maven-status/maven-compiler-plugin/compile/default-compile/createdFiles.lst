@@ -1,6 +1,15 @@
 com\mycompany\proyectoestructurasdatos\App.class
+com\mycompany\proyectoestructurasdatos\NuevoUsuarioController.class
+Modelo\EmojiImage.class
+com\mycompany\proyectoestructurasdatos\SeguirController.class
 TDA\Node.class
+com\mycompany\proyectoestructurasdatos\PantallaUsuario1Controller.class
 module-info.class
+TDA\LinkedList.class
 TDA\List.class
+TDA\LinkedList$1.class
 Modelo\Usuario.class
+TDA\ArrayList.class
+com\mycompany\proyectoestructurasdatos\NuevoEmojiController.class
 Modelo\Emoji.class
+com\mycompany\proyectoestructurasdatos\InicioSesionController.class

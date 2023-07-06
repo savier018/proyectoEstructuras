@@ -1,49 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectoestructurasdatos.PantallaUsuario1Controller">
    <children>
-      <VBox fx:id="ListContainer" layoutX="98.0" layoutY="201.0" prefHeight="147.0" prefWidth="401.0">
-         <children>
-            <HBox fx:id="ListFaces" prefHeight="100.0" prefWidth="401.0" />
-            <HBox fx:id="ListEyes" prefHeight="100.0" prefWidth="200.0" />
-            <HBox fx:id="ListMouth" prefHeight="100.0" prefWidth="200.0" />
-         </children>
-      </VBox>
-      <MenuBar layoutY="2.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <ToolBar layoutX="130.0" layoutY="348.0" prefHeight="40.0" prefWidth="334.0">
-         <items>
-            <Button fx:id="nuevobtn" mnemonicParsing="false" onAction="#nuevo" prefHeight="25.0" prefWidth="79.0" text="Previous" />
-            <Button fx:id="resetbtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Reset" />
-            <Button fx:id="acceptbtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Accept" />
-            <Button fx:id="seguirbtn" mnemonicParsing="false" onAction="#seguir" onMouseClicked="#seguir" prefHeight="25.0" prefWidth="71.0" text="Next" />
-         </items>
-      </ToolBar>
+      <Button fx:id="nuevobtn" layoutX="165.0" layoutY="175.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="50.0" prefWidth="79.0" text="+new" />
+      <Button fx:id="seguirbtn" layoutX="345.0" layoutY="175.0" mnemonicParsing="false" onAction="#seguir" onMouseClicked="#seguir" prefHeight="50.0" prefWidth="79.0" text="seguir" />
+      
+      <TextField fx:id="textNombre" layoutX="91.0" layoutY="54.0" />
+      <Button fx:id="volverbtn" alignment="CENTER_RIGHT" layoutX="42.0" layoutY="328.0" mnemonicParsing="false" onAction="#volver" prefHeight="40.0" prefWidth="99.0" text="Volver">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
