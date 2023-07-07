@@ -11,8 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import Modelo.Usuario;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
+import javafx.stage.Stage;
 
 
 
@@ -94,15 +99,18 @@ public class InicioSesionController implements Initializable {
     }
     
     @FXML
-    public void registrar() throws IOException{
-        try{
-            App.setRoot("nuevoUsuario");    
-        }
-        catch (IOException ex) {
-            registrobtn.setDisable(true);
+    public void registrar(ActionEvent event) throws IOException{
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("nuevoUsuario.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         
     }
-    
-    
+       
 }

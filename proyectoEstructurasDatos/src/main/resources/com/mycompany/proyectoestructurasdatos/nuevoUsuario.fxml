@@ -12,8 +12,8 @@
 
 <AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="758.0" style="-fx-background-color: linear-gradient(to bottom, #ED4956, #8134AF);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectoestructurasdatos.NuevoUsuarioController">
    <children>
-      <TextField fx:id="usuariotf" layoutX="216.0" layoutY="147.0" prefHeight="25.0" prefWidth="327.0" />
-      <PasswordField fx:id="clavetf" layoutX="216.0" layoutY="235.0" prefHeight="25.0" prefWidth="327.0" />
+      <TextField fx:id="usuariotf" layoutX="216.0" layoutY="147.0" prefHeight="25.0" prefWidth="327.0" style="-fx-background-radius: 10px;" />
+      <PasswordField fx:id="clavetf" layoutX="216.0" layoutY="235.0" prefHeight="25.0" prefWidth="327.0" style="-fx-background-radius: 10px;" />
       <Label layoutX="216.0" layoutY="116.0" prefHeight="25.0" prefWidth="123.0" text="Nuevo Usuario" textFill="WHITE">
          <font>
             <Font name="System Italic" size="16.0" />
@@ -22,7 +22,7 @@
          <font>
             <Font name="System Italic" size="16.0" />
          </font></Label>
-      <Button fx:id="registrobtn" layoutX="301.0" layoutY="289.0" mnemonicParsing="false" onAction="#aceptarNuevo" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #5E1B6A;" text="Crear usuario" textFill="WHITE">
+      <Button fx:id="registrobtn" layoutX="385.0" layoutY="297.0" mnemonicParsing="false" onAction="#aceptarNuevo" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #5E1B6A; -fx-cursor: hand;" text="Crear usuario" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
@@ -30,11 +30,11 @@
          <font>
             <Font name="System Bold" size="32.0" />
          </font></Label>
-      <CheckBox fx:id="vistaclave" layoutX="424.0" layoutY="206.0" mnemonicParsing="false" onAction="#visible" text="Show Password" textFill="WHITE">
+      <CheckBox fx:id="vistaclave" layoutX="424.0" layoutY="206.0" mnemonicParsing="false" onAction="#visible" style="-fx-cursor: hand;" text="Show Password" textFill="WHITE">
          <font>
             <Font name="System Italic" size="14.0" />
          </font></CheckBox>
-      <TextField fx:id="clavetf1" layoutX="216.0" layoutY="235.0" prefHeight="25.0" prefWidth="327.0" />
+      <TextField fx:id="clavetf1" layoutX="216.0" layoutY="235.0" prefHeight="25.0" prefWidth="327.0" style="-fx-background-radius: 10px;" />
       <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="159.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Images/images%20gui/44948.png" />
@@ -45,5 +45,10 @@
             <Image url="@../../../Images/images%20gui/45259.png" />
          </image>
       </ImageView>
+      <Button fx:id="botonRegresar" layoutX="188.0" layoutY="298.0" mnemonicParsing="false" onAction="#volverLogin" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: #5E1B6A; -fx-cursor: hand;" text="Volver" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
