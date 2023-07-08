@@ -22,8 +22,11 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -37,7 +40,7 @@ public class NuevoEmojiController implements Initializable {
 
    //FXML
     @FXML
-    private TextField textNombre;
+    private AnchorPane ap;
     @FXML
     private VBox ListContainer;
     @FXML
@@ -51,9 +54,9 @@ public class NuevoEmojiController implements Initializable {
     @FXML
     private Button acceptbtn;
     @FXML
-    private Button prevbtn;
+    private MenuBar mb;
     @FXML
-    private Button nextbtn;
+    private ToolBar tb;
     
     //Variables and Lists
     static Usuario user;
@@ -69,22 +72,21 @@ public class NuevoEmojiController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       textNombre.setText(nombreUsuario);
-        textNombre.setDisable(true);
 
         /*if (user.coleccionEmojis.isEmpty()){
             seguir.setDisable(true);
+        
         }*/
         loadLFaces();
-        loadLMouth();
         loadLEyes();
+        loadLMouth();
         loadToHBox(lFaces,lEyes,lMouth);
     }    
     
     public LinkedList<EmojiImage> loadImages(String Type){
-    LinkedList<EmojiImage> images= new LinkedList();    
+    LinkedList<EmojiImage> images= new LinkedList();
     try{
-    BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Win1OPro Station\\Documents\\NetBeansProjects\\SpaceAdventure\\src\\main\\resources\\Data\\"+Type+".txt"));
+    BufferedReader br = new BufferedReader(new FileReader("src/main/resources/text/usuarios.txt"));
      String linea;
      while((linea=br.readLine())!=null){
      String[] datos= linea.split("/");
@@ -101,14 +103,14 @@ public class NuevoEmojiController implements Initializable {
  }
     
     public void loadLFaces(){
-        lFaces=loadImages("faces");
+        //lFaces=loadImages("faces");
     }
     
     public void loadLEyes(){
-        lEyes=loadImages("eyes");
+       // lEyes=loadImages("eyes");
     }
     public void loadLMouth(){
-        lMouth=loadImages("mouth");
+       // lMouth=loadImages("mouth");
     }
     
     public void loadToHBox(LinkedList<EmojiImage> lF,LinkedList<EmojiImage> lE,LinkedList<EmojiImage> lM){

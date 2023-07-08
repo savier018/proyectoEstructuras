@@ -43,7 +43,7 @@ public class PantallaUsuario1Controller implements Initializable {
     @FXML
     private Button seguirbtn;
     @FXML
-    private Button volverbtn;
+    private Button nuevobtn;
 
     /**
      * Initializes the controller class.
@@ -65,7 +65,7 @@ public class PantallaUsuario1Controller implements Initializable {
             bw.write("Cara,Ojos,Boca");
             App.setRoot("nuevoEmoji");
         }catch (IOException e){
-            System.out.println("error");
+            System.err.println(e);
         }
     }   
     
