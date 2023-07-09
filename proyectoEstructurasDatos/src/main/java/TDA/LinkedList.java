@@ -1,55 +1,53 @@
 package TDA;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 public class LinkedList<E> implements List<E>, Iterable<E> {
    
-    private Node<E> first;
-    private Node<E> last;
+    private Node<E> cabeza;
 
     public LinkedList() {
-        this.first = null;
-        this.last = null;
+        this.cabeza = null;
     }
 
     @Override
     public int size() {
-        int contador = 0;
-        Node<E> viajero = first;
-        
-        do {
+        if (isEmpty()){
+            return 0;
+        }
+        int contador = 1;
+        Node<E> nodoViajero = cabeza.getNext();
+        while (nodoViajero != cabeza) {
             contador++;
-            viajero = viajero.getNext();
-        } while (viajero!= first);
+            nodoViajero = nodoViajero.getNext();
+        }
+
         return contador;
     }
 
     @Override
     public boolean isEmpty() {
-        return this.first == null;
+        return this.cabeza == null;
     }
 
     @Override
     public void clear() {
-        this.first = null;
-        this.last = null;
+        this.cabeza = null;
     }
 
     @Override
     public boolean addFirst(E element) {
         Node<E> nuevoNode = new Node<>(element);
         if (isEmpty()) {
+            this.cabeza = nuevoNode;
             nuevoNode.setNext(nuevoNode);
             nuevoNode.setPrev(nuevoNode);
-            this.first = nuevoNode;
-            this.last = nuevoNode;
         } else {
-            nuevoNode.setNext(this.first);
-            nuevoNode.setPrev(this.first.getPrev());
-            this.first.getPrev().setNext(nuevoNode);
-            this.first.setPrev(nuevoNode);
-            this.first = nuevoNode;
+            nuevoNode.setNext(this.cabeza);
+            nuevoNode.setPrev(this.cabeza.getPrev());
+            this.cabeza.getPrev().setNext(nuevoNode);
+            this.cabeza.setPrev(nuevoNode);
+            cabeza = nuevoNode;
         }
         return true;
     }
@@ -58,16 +56,14 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
     public boolean addLast(E element) {
         Node<E> nuevoNode = new Node<>(element);
         if (isEmpty()){
+           this.cabeza = nuevoNode;
            nuevoNode.setNext(nuevoNode);
            nuevoNode.setPrev(nuevoNode);
-           this.first = nuevoNode;
-           this.last = nuevoNode;
         } else {
-            nuevoNode.setNext(this.first);
-            nuevoNode.setPrev(this.first.getPrev());
-            this.first.getPrev().setNext(nuevoNode);
-            this.first.setPrev(nuevoNode);
-            this.last = nuevoNode;
+            nuevoNode.setNext(this.cabeza);
+            nuevoNode.setPrev(this.cabeza.getPrev());
+            this.cabeza.getPrev().setNext(nuevoNode);
+            this.cabeza.setPrev(nuevoNode);
         }
         return true;
     }
@@ -76,14 +72,14 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
     public boolean removeFirst() {
         if (isEmpty()){
            return false;
-        } else if (first.getNext() == last) {
-            first = null;
-            last = null;
+        } else if (this.cabeza.getNext() == cabeza) {
+            this.cabeza = null;
         } else {
-            Node<E> nuevoNode = first.getNext();
-            nuevoNode.setPrev(last);
-            last.setNext(nuevoNode);
-            first = nuevoNode;
+            Node<E> nodoSiguiente = this.cabeza.getNext();
+            Node<E> nodoAnterior = this.cabeza.getPrev();
+            
+            nodoSiguiente.setPrev(nodoAnterior);
+            nodoAnterior.setNext(nodoSiguiente);
         }
         return true;
     }
@@ -92,14 +88,14 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
     public boolean removeLast() {
         if (isEmpty()){
             return false;
-        } else if (last.getNext() == first) {
-            first = null;
-            last = null;
+        } else if (this.cabeza.getNext() == this.cabeza) {
+            this.cabeza = null;
         } else {
-            Node<E> nuevoNode = last.getPrev();
-            nuevoNode.setNext(first);
-            first.setPrev(nuevoNode);
-            last = nuevoNode;
+            Node<E> nodoAnterior = this.cabeza.getPrev();
+            Node<E> nodoPenultimo = nodoAnterior.getPrev();
+            
+            nodoPenultimo.setNext(cabeza);
+            this.cabeza.setPrev(nodoPenultimo);
         }
         return true;
     }
@@ -107,24 +103,28 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
-            private Node<E> nodoActual = first;
+            private Node<E> nodoActual = cabeza;
             private boolean esPrimero = false;
 
             @Override
             public boolean hasNext() {
-                return !isEmpty() && (nodoActual != null) && (!esPrimero || nodoActual != first);
+                if (esPrimero){
+                    return nodoActual != null;
+                } else {
+                    return nodoActual != cabeza;
+                }
             }
 
             @Override
             public E next() {
-                if(!hasNext()){
-                    throw new NoSuchElementException();
-                } 
-                E contenido = nodoActual.getContent();
                 nodoActual = nodoActual.getNext();
-                esPrimero = true;
-                return contenido;
                 
+                if (esPrimero){
+                    return nodoActual.getContent();
+                } else {
+                    esPrimero = true;
+                    return nodoActual.getContent();
+                }
             }                      
         };
     }
@@ -132,28 +132,69 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
     @Override
     public String toString(){
         if (isEmpty()) {
-            return "Empty LinkedList";
+            return "La LinkedList está vacía";
         }
 
-        String result = "";
-        Node<E> current = first;
+        String contenidoLinkedList = "";
+        Node<E> nodoActual = cabeza;
 
         do {
-            result += current.getContent() + " ";
-            current = current.getNext();
-        } while (current != first);
+            contenidoLinkedList += nodoActual.getContent() + ", ";
+            nodoActual = nodoActual.getNext();
+        } while (nodoActual != cabeza);
 
-        return result.trim();
+        return contenidoLinkedList.substring(0, contenidoLinkedList.length() - 1);
     }
 
     @Override
-    public boolean add(E element, int index) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean add(E element, int indice) {
+        Node<E> nuevoNode = new Node<>(element);
+        if (indice < 0 || indice> size()){
+           throw new IndexOutOfBoundsException("Índice fuera de rango"); 
+        } else if (indice == 0 || cabeza == null){
+            addFirst(element);
+        } else if (indice == size()){
+            addLast(element);
+        }
+        
+        Node<E> nodoActual = cabeza;
+        for (int i = 0; i < indice -1; i++) {
+            nodoActual = nodoActual.getNext();
+        }
+        
+        nuevoNode.setNext(nodoActual.getNext());
+        nuevoNode.setPrev(nodoActual);
+        nodoActual.getNext().setPrev(nuevoNode);
+        nodoActual.setNext(nuevoNode);
+        return true;
     }
 
     @Override
-    public E get(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public E get(int indice) {
+        if (cabeza != null){
+            Node<E> nodoActual = cabeza;
+            for (int i = 0; i < indice; i++) {
+                nodoActual = nodoActual.getNext();
+            }
+            return nodoActual.getContent();
+        }
+        throw new IndexOutOfBoundsException("Índice fuera de rango");
+    }
+    
+    public E getNext(){
+        if (cabeza != null){
+           Node<E> nodoSiguiente = this.cabeza.getNext();
+           return nodoSiguiente.getContent();
+        }
+        return null;
+    }
+    
+    public E getPrev(){
+        if (cabeza != null){
+            Node<E> nodoPrevio = this.cabeza.getPrev();
+            return nodoPrevio.getContent();
+        }
+        return null;
     }
     
 }
