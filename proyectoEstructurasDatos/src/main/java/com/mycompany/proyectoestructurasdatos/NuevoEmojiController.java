@@ -133,15 +133,15 @@ public class NuevoEmojiController implements Initializable {
         System.out.println(e.getTarget().toString());
         if(e.getTarget().equals(FaceM)){
         CurrentNodeF= new EmojiImage(FaceM.getId(),FaceM.getImage());
-        //loadToEmojiSetF();
+        loadToEmojiSetF();
         }
         if(e.getTarget().equals(FaceN)){
         CurrentNodeF= new EmojiImage(FaceN.getId(),FaceN.getImage());
-        //loadToEmojiSetF();
+        loadToEmojiSetF();
         }
         if(e.getTarget().equals(FaceP)){
         CurrentNodeF= new EmojiImage(FaceP.getId(),FaceP.getImage());
-        //loadToEmojiSetF();
+        loadToEmojiSetF();
         }
     }
     @FXML
@@ -150,15 +150,15 @@ public class NuevoEmojiController implements Initializable {
         System.out.println(e.getTarget().toString());
         if(e.getTarget().equals(EyesM)){
         CurrentNodeE= new EmojiImage(EyesM.getId(),EyesM.getImage());
-        //loadToEmojiSetE();
+        loadToEmojiSetE();
         }
         if(e.getTarget().equals(EyesN)){
         CurrentNodeE= new EmojiImage(EyesN.getId(),EyesN.getImage());
-        //loadToEmojiSetE();
+        loadToEmojiSetE();
         }
         if(e.getTarget().equals(EyesP)){
         CurrentNodeE= new EmojiImage(EyesP.getId(),EyesP.getImage());
-        //loadToEmojiSetE();
+        loadToEmojiSetE();
         }
     }
     @FXML
@@ -167,15 +167,15 @@ public class NuevoEmojiController implements Initializable {
         System.out.println(e.getTarget().toString());
         if(e.getTarget().equals(MouthM)){
         CurrentNodeM= new EmojiImage(MouthM.getId(),MouthM.getImage());
-        //loadToEmojiSetM();
+        loadToEmojiSetM();
         }
         if(e.getTarget().equals(MouthN)){
         CurrentNodeM= new EmojiImage(MouthN.getId(),MouthN.getImage());
-        //loadToEmojiSetM();
+        loadToEmojiSetM();
         }
         if(e.getTarget().equals(MouthP)){
         CurrentNodeM= new EmojiImage(MouthP.getId(),MouthP.getImage());
-        //loadToEmojiSetM();
+        loadToEmojiSetM();
         }
     }
     
