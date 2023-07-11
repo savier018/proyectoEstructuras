@@ -132,15 +132,14 @@ public class NuevoEmojiController implements Initializable {
         System.out.println(e.getSource().toString());
         System.out.println(e.getTarget().toString());
         if(e.getTarget().equals(FaceM)){
-        CurrentNodeF= new EmojiImage(FaceM.getId(),FaceM.getImage());
         loadToEmojiSetF();
         }
         if(e.getTarget().equals(FaceN)){
-        CurrentNodeF= new EmojiImage(FaceN.getId(),FaceN.getImage());
+        loadToFFHBox();
         loadToEmojiSetF();
         }
         if(e.getTarget().equals(FaceP)){
-        CurrentNodeF= new EmojiImage(FaceP.getId(),FaceP.getImage());
+        loadToFPHBox();
         loadToEmojiSetF();
         }
     }
@@ -149,15 +148,14 @@ public class NuevoEmojiController implements Initializable {
         System.out.println(e.getSource().toString());
         System.out.println(e.getTarget().toString());
         if(e.getTarget().equals(EyesM)){
-        CurrentNodeE= new EmojiImage(EyesM.getId(),EyesM.getImage());
         loadToEmojiSetE();
         }
         if(e.getTarget().equals(EyesN)){
-        CurrentNodeE= new EmojiImage(EyesN.getId(),EyesN.getImage());
+        loadToEFHBox();    
         loadToEmojiSetE();
         }
         if(e.getTarget().equals(EyesP)){
-        CurrentNodeE= new EmojiImage(EyesP.getId(),EyesP.getImage());
+        loadToEPHBox();
         loadToEmojiSetE();
         }
     }
@@ -166,15 +164,14 @@ public class NuevoEmojiController implements Initializable {
         System.out.println(e.getSource().toString());
         System.out.println(e.getTarget().toString());
         if(e.getTarget().equals(MouthM)){
-        CurrentNodeM= new EmojiImage(MouthM.getId(),MouthM.getImage());
         loadToEmojiSetM();
         }
         if(e.getTarget().equals(MouthN)){
-        CurrentNodeM= new EmojiImage(MouthN.getId(),MouthN.getImage());
+        loadToMFHBox();
         loadToEmojiSetM();
         }
         if(e.getTarget().equals(MouthP)){
-        CurrentNodeM= new EmojiImage(MouthP.getId(),MouthP.getImage());
+        loadToMPHBox();
         loadToEmojiSetM();
         }
     }
@@ -234,14 +231,9 @@ public void loadToFFHBoxFirst3(){
        Image i= CurrentNodeF.getImage();
        ImageView d= new ImageView(i);
        d.setId(CurrentNodeF.getName());
-       
-       
        ImageView e=Emoji.get(1);
        ImageView m=Emoji.get(2);
-       Emoji.clear();
-       Emoji.addLast(d);
-       Emoji.addLast(e);
-       Emoji.addLast(m);
+       Emoji.set(0, d);
        EmojiSet.getChildren().clear();
        EmojiSet.getChildren().add(0,Emoji.get(0));
        EmojiSet.getChildren().add(1,Emoji.get(1));
@@ -342,10 +334,7 @@ public void loadToFFHBoxFirst3(){
        d.setLayoutY(10);
        ImageView f=Emoji.get(0);
        ImageView e=Emoji.get(1);
-       Emoji.clear();
-       Emoji.addLast(f);
-       Emoji.addLast(e);
-       Emoji.addLast(d);
+       Emoji.set(2,d);
        EmojiSet.getChildren().clear();
        EmojiSet.getChildren().add(0,Emoji.get(0));
        EmojiSet.getChildren().add(1,Emoji.get(1));
@@ -446,10 +435,7 @@ public void loadToFFHBoxFirst3(){
        d.setLayoutY(-10);     
        ImageView f=Emoji.get(0);
        ImageView m=Emoji.get(2);
-       Emoji.clear();
-       Emoji.addLast(f);
-       Emoji.addLast(d);
-       Emoji.addLast(m);
+       Emoji.set(1,d);
        EmojiSet.getChildren().clear();
        EmojiSet.getChildren().add(0,Emoji.get(0));
        EmojiSet.getChildren().add(1,Emoji.get(1));

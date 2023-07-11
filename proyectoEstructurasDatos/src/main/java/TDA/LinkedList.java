@@ -1,5 +1,6 @@
 package TDA;
 
+import java.util.HashSet;
 import java.util.Iterator;
 
 public class LinkedList<E> implements List<E>, Iterable<E> {
@@ -185,20 +186,26 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
        if (isEmpty()){
            throw new IndexOutOfBoundsException("La lista está vacía");
        } else if (indice == 0){
-           addFirst(elemento);
+          cabeza.setContent(elemento);
+           
        } else if (indice == size()){
-           addLast(elemento);
+           Node<E> nA= cabeza;
+           for(int i=0;size()>i;i++){
+               nA.getNext();
+           }
+           nA.setContent(elemento);
        }
        Node<E> nodoActual = cabeza;
        int contador = 0;
        
-       do {
+       do{
+         
            if (contador == indice){
                nodoActual.setContent(elemento);
            }
            nodoActual = nodoActual.getNext();
            contador++;
-       } while(nodoActual != cabeza);
+       }while(nodoActual != cabeza);
        
     }
     
