@@ -181,6 +181,27 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
         throw new IndexOutOfBoundsException("Índice fuera de rango");
     }
     
+    public void set(int indice, E elemento){
+       if (isEmpty()){
+           throw new IndexOutOfBoundsException("La lista está vacía");
+       } else if (indice == 0){
+           addFirst(elemento);
+       } else if (indice == size()){
+           addLast(elemento);
+       }
+       Node<E> nodoActual = cabeza;
+       int contador = 0;
+       
+       do {
+           if (contador == indice){
+               nodoActual.setContent(elemento);
+           }
+           nodoActual = nodoActual.getNext();
+           contador++;
+       } while(nodoActual != cabeza);
+       
+    }
+    
     public E getNext(){
         if (cabeza != null){
            Node<E> nodoSiguiente = this.cabeza.getNext();
