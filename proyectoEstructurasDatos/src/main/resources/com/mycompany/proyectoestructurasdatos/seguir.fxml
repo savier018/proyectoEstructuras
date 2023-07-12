@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectoestructurasdatos.SeguirController">
-    
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FDF5E6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectoestructurasdatos.SeguirController">
+   <children>
+      <Button fx:id="volverbtn" alignment="CENTER_RIGHT" layoutX="30.0" layoutY="337.0" mnemonicParsing="false" onAction="#volver" prefHeight="40.0" prefWidth="99.0" style="-fx-background-color: #40E0D0;" text="Volver" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../../../Images/images%20gui/volver.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="seguirbtn" layoutX="483.0" layoutY="332.0" mnemonicParsing="false" onAction="#seguir" onMouseClicked="#seguir" prefHeight="50.0" prefWidth="79.0" style="-fx-background-color: #40E0D0;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0" nodeOrientation="RIGHT_TO_LEFT">
+               <image>
+                  <Image url="@../../../Images/images%20gui/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="161.0" layoutY="14.0" prefHeight="40.0" prefWidth="237.0" text="Seguir" textFill="#030303">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <HBox fx:id="hb" layoutX="58.0" layoutY="92.0" prefHeight="217.0" prefWidth="484.0" />
+   </children>
 </AnchorPane>

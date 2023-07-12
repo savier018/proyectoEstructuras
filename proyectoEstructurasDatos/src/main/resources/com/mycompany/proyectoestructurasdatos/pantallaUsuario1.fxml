@@ -9,8 +9,18 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #ED4956, #8134AF);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectoestructurasdatos.PantallaUsuario1Controller">
    <children>
-      <Button fx:id="nuevobtn" layoutX="165.0" layoutY="175.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="50.0" prefWidth="79.0" text="+new" />
-      <Button fx:id="seguirbtn" layoutX="345.0" layoutY="175.0" mnemonicParsing="false" onAction="#seguir" onMouseClicked="#seguir" prefHeight="50.0" prefWidth="79.0" text="seguir" />
+      <Button fx:id="nuevobtn" layoutX="165.0" layoutY="175.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="50.0" prefWidth="79.0" text="+">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font></Button>
+      <Button fx:id="seguirbtn" layoutX="345.0" layoutY="175.0" mnemonicParsing="false" onAction="#seguir" onMouseClicked="#seguir" prefHeight="50.0" prefWidth="79.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/images%20gui/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       
       <TextField fx:id="textNombre" layoutX="56.0" layoutY="17.0" style="-fx-background-color: transparent;">
          <font>
@@ -24,6 +34,11 @@
       <ImageView fitHeight="31.0" fitWidth="58.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Images/images%20gui/44948.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="58.0" layoutX="51.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/images%20gui/volver.png" />
          </image>
       </ImageView>
    </children>

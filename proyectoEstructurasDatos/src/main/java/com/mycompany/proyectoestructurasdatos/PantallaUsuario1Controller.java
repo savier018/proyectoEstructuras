@@ -52,17 +52,16 @@ public class PantallaUsuario1Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         textNombre.setText(nombreUsuario);
         textNombre.setDisable(true);
-        /*if (user.coleccionEmojis.isEmpty()){
-            seguir.setDisable(true);
-        }*/
+        if (SeguirController.cargarEmojis().get(0).isEmpty()){
+            seguirbtn.setDisable(true);
+        }
         
     }    
     //Metodos FXML
       
     @FXML
     public void nuevo()throws IOException {
-       try (BufferedWriter bw = new BufferedWriter(new FileWriter(String.format("src/main/resources/text/%s.txt",nombreUsuario)));){
-            bw.write("Cara,Ojos,Boca");
+       try {
             App.setRoot("nuevoEmoji");
         }catch (IOException e){
             System.err.println(e);

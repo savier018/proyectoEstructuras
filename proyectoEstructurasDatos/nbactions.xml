@@ -10,11 +10,12 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>--module-path "C:\Users\Win1OPro Station\Downloads\javafx-sdk-19\lib" --add-modules javafx.controls,javafx.fxml</exec.vmArgs>
+                <exec.vmArgs>--module-path "C:\Users\fnand\OneDrive\Escritorio\javafx-sdk-17.0.7\lib" --add-modules javafx.controls,javafx.fxml</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
-                <exec.mainClass>com.mycompany.proyectoestructurasdatos.App</exec.mainClass>
+                <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.executable>java</exec.executable>
+                <exec.workingdir></exec.workingdir>
             </properties>
         </action>
         <action>
@@ -27,12 +28,13 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>--module-path "C:\Users\Win1OPro Station\Downloads\javafx-sdk-19\lib" --add-modules javafx.controls,javafx.fxml -agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
+                <exec.vmArgs>--module-path "C:\Users\fnand\OneDrive\Escritorio\javafx-sdk-17.0.7\lib" --add-modules javafx.controls,javafx.fxml -agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
-                <exec.mainClass>com.mycompany.proyectoestructurasdatos.App</exec.mainClass>
+                <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
+                <exec.workingdir></exec.workingdir>
             </properties>
         </action>
         <action>
@@ -45,11 +47,12 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
-                <exec.vmArgs>--module-path "C:\Users\Win1OPro Station\Downloads\javafx-sdk-19\lib" --add-modules javafx.controls,javafx.fxml</exec.vmArgs>
+                <exec.vmArgs>--module-path "C:\Users\fnand\OneDrive\Escritorio\javafx-sdk-17.0.7\lib" --add-modules javafx.controls,javafx.fxml</exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
-                <exec.mainClass>com.mycompany.proyectoestructurasdatos.App</exec.mainClass>
+                <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <exec.appArgs></exec.appArgs>
+                <exec.workingdir></exec.workingdir>
             </properties>
         </action>
         

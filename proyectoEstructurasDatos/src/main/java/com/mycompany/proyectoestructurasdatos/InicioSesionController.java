@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import Modelo.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
@@ -54,12 +53,17 @@ public class InicioSesionController implements Initializable {
         //extrae lo que el usuario ingreso en los textfield y los guarda en variables
         String user = usuario.getText();
         String pass = clave.getText();
+        if(vistaclave.isSelected()){
+            pass = clavetf1.getText();
+        }
         int cont=0; //va a sumar los intentos correctos, verificando que la informacion ingresada es correcta
         for(int i= 0;i<usuarioLista.size(); i++){ //recorre la lista usuario en donde si pertence a un nivel lo lleve a la interfaz de ese
             Usuario u = usuarioLista.get(i); 
             if(user.equals(u.getUsuario()) && pass.equals(u.getContraseña())){
                     PantallaUsuario1Controller.setNombreUsuario(user);
                     PantallaUsuario1Controller.setUsuario(u);
+                    NuevoEmojiController.setNombreUsuario(user);
+                    SeguirController.setNombreUsuario(user);
                     //u.cargarListaEmoji();
                     try {       
                         
@@ -101,14 +105,9 @@ public class InicioSesionController implements Initializable {
     @FXML
     public void registrar(ActionEvent event) throws IOException{
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("nuevoUsuario.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
+            App.setRoot("nuevoUsuario");
         } catch (IOException e) {
-            e.printStackTrace();
+            registrobtn.setDisable(true);
         }
         
     }

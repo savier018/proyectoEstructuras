@@ -8,11 +8,6 @@ import Modelo.Usuario;
 import TDA.ArrayList;
 import java.io.IOException;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -61,6 +56,9 @@ public class NuevoUsuarioController implements Initializable {
     public void aceptarNuevo() throws IOException {
         String usuario = usuariotf.getText();
         String clave = clavetf.getText();
+        if(vistaclave.isSelected()){
+            clave = clavetf1.getText();
+        }
         Usuario u = new Usuario(usuario,clave);
         listaUsuario.addLast(u);
         Usuario.sobreescribirFichero(listaUsuario);
@@ -88,16 +86,11 @@ public class NuevoUsuarioController implements Initializable {
     }
     
     @FXML
-    public void volverLogin(ActionEvent event){
+    public void volverLogin()throws IOException{
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("inicioSesion.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) botonRegresar.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
+            App.setRoot("inicioSesion");
         } catch (IOException e) {
-            e.printStackTrace();
+            botonRegresar.setDisable(true);
         }
     }
     

@@ -17,27 +17,27 @@
          <children>
             <HBox fx:id="ListFaces" onMouseClicked="#mouseFClicked" prefHeight="49.0" prefWidth="343.0">
                <children>
-                  <Button fx:id="prevF" mnemonicParsing="false" onAction="#movePFHBox" text="Button" />
+                  <Button fx:id="prevF" mnemonicParsing="false" onAction="#movePFHBox" text="prevF" />
                   <ImageView fx:id="FaceP" fitHeight="48.0" fitWidth="80.0" onMouseClicked="#mouseFClicked" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="FaceM" fitHeight="48.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="FaceN" fitHeight="48.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="nextF" mnemonicParsing="false" onAction="#moveNFHBox" text="Button" />
+                  <Button fx:id="nextF" mnemonicParsing="false" onAction="#moveNFHBox" text="nextF" />
                </children></HBox>
             <HBox fx:id="ListEyes" onMouseClicked="#mouseEClicked" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="prevE" mnemonicParsing="false" onAction="#movePEHBox" text="Button" />
+                  <Button fx:id="prevE" mnemonicParsing="false" onAction="#movePEHBox" text="prevE" />
                   <ImageView fx:id="EyesP" fitHeight="48.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="EyesM" fitHeight="48.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="EyesN" fitHeight="48.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="nextE" mnemonicParsing="false" onAction="#moveNEHBox" text="Button" />
+                  <Button fx:id="nextE" mnemonicParsing="false" onAction="#moveNEHBox" text="nextE" />
                </children></HBox>
             <HBox fx:id="ListMouth" onMouseClicked="#mouseMClicked" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="prevM" mnemonicParsing="false" onAction="#movePMHBox" text="Button" />
+                  <Button fx:id="prevM" mnemonicParsing="false" onAction="#movePMHBox" text="prevM" />
                   <ImageView fx:id="MouthP" fitHeight="48.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="MouthM" fitHeight="48.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="MouthN" fitHeight="48.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="nextM" mnemonicParsing="false" onAction="#moveNMHBox" text="Button" />
+                  <Button fx:id="nextM" mnemonicParsing="false" onAction="#moveNMHBox" text="nextM" />
                </children></HBox>
          </children>
       </VBox>
@@ -63,7 +63,7 @@
       <ToolBar fx:id="tb" layoutX="130.0" layoutY="348.0" prefHeight="40.0" prefWidth="334.0">
          <items>
             <Button fx:id="resetbtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Reset" />
-            <Button fx:id="acceptbtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Accept" />
+            <Button fx:id="acceptbtn" mnemonicParsing="false" onAction="#registrar" prefHeight="25.0" prefWidth="79.0" text="Accept" />
          </items>
       </ToolBar>
       <Pane fx:id="EmojiSet" layoutX="218.0" layoutY="27.0" prefHeight="121.0" prefWidth="161.0" />

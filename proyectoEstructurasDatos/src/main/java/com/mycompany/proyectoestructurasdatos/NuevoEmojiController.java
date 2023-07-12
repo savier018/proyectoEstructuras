@@ -176,6 +176,26 @@ public class NuevoEmojiController implements Initializable {
         }
     }
     
+    @FXML
+    public void registrar(){
+        registrarEmoji(SeguirController.cargarEmojis());
+    }
+    public void registrarEmoji(ArrayList<LinkedList> listadeEmojis){
+        LinkedList<EmojiImage> listaFaces = listadeEmojis.get(0);
+        LinkedList<EmojiImage> listaEyes = listadeEmojis.get(1);
+        LinkedList<EmojiImage> listaMouth = listadeEmojis.get(2);
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(String.format("src/main/resources/text/%s.txt",nombreUsuario)));){
+           bw.write("Cara,Ojos,Boca");
+           for(int i = 0;i<listaFaces.size();i++){             
+                bw.newLine();
+                bw.write(listaFaces.get(i).getName()+","+listaEyes.get(i).getName()+","+listaMouth.get(i).getName());
+            }
+            bw.newLine();
+            bw.write(CurrentNodeF+","+CurrentNodeE+","+CurrentNodeM);
+        }catch (IOException e){
+            System.out.println("error");
+        }
+    }
     
     //Verificar la clase clickeada
     //Depedendiendo cual sea la clase dependiendo donde la ponemos
@@ -514,4 +534,7 @@ public void loadToFFHBoxFirst3(){
         loadToEmojiSetE();
     }
     
+    public static void setNombreUsuario(String nombre) {
+        nombreUsuario = nombre;
+    }
 }

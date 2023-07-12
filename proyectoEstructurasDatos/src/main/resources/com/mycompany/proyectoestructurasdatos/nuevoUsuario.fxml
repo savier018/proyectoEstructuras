@@ -22,7 +22,7 @@
          <font>
             <Font name="System Italic" size="16.0" />
          </font></Label>
-      <Button fx:id="registrobtn" layoutX="385.0" layoutY="297.0" mnemonicParsing="false" onAction="#aceptarNuevo" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #5E1B6A; -fx-cursor: hand;" text="Crear usuario" textFill="WHITE">
+      <Button fx:id="registrobtn" layoutX="300.0" layoutY="277.0" mnemonicParsing="false" onAction="#aceptarNuevo" prefHeight="40.0" prefWidth="158.0" style="-fx-background-color: #5E1B6A; -fx-cursor: hand;" text="Crear usuario" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
@@ -45,10 +45,17 @@
             <Image url="@../../../Images/images%20gui/45259.png" />
          </image>
       </ImageView>
-      <Button fx:id="botonRegresar" layoutX="188.0" layoutY="298.0" mnemonicParsing="false" onAction="#volverLogin" prefHeight="40.0" prefWidth="152.0" style="-fx-background-color: #5E1B6A; -fx-cursor: hand;" text="Volver" textFill="WHITE">
+      <Button fx:id="botonRegresar" layoutX="36.0" layoutY="297.0" mnemonicParsing="false" onAction="#volverLogin" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #5E1B6A; -fx-cursor: hand;" text="Volver" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../../../Images/images%20gui/volver.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
    </children>
 </AnchorPane>
