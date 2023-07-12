@@ -43,6 +43,7 @@ import javafx.scene.layout.VBox;
 public class NuevoEmojiController implements Initializable {
 
    //FXML
+       //FXML
     @FXML
     private AnchorPane ap;
     @FXML
@@ -53,6 +54,10 @@ public class NuevoEmojiController implements Initializable {
     private HBox ListEyes;
     @FXML
     private HBox ListMouth;
+    @FXML
+    private HBox ListEyebrows;
+    @FXML
+    private HBox ListAccessories;
     //Buttons
     @FXML
     private Button resetbtn;
@@ -69,11 +74,16 @@ public class NuevoEmojiController implements Initializable {
     @FXML
     private Button nextM;
     @FXML
-    private Button prevM;   
+    private Button prevM;
     @FXML
-    private MenuBar mb;
+    private Button nextEb;
     @FXML
-    private ToolBar tb;
+    private Button prevEb;
+    @FXML
+    private Button nextA;
+    @FXML
+    private Button prevA;
+    
     @FXML
     private Pane EmojiSet;
     @FXML
@@ -83,49 +93,74 @@ public class NuevoEmojiController implements Initializable {
     @FXML
     private ImageView MouthM;
     @FXML
+    private ImageView EyebrowsM;
+    @FXML
+    private ImageView AccessoriesM;
+    @FXML
     private ImageView FaceP;
     @FXML
     private ImageView EyesP;
     @FXML
     private ImageView MouthP;
     @FXML
+    private ImageView EyebrowsP;
+    @FXML
+    private ImageView AccessoriesP;
+    @FXML
     private ImageView FaceN;
     @FXML
     private ImageView EyesN;
     @FXML
     private ImageView MouthN;
+    @FXML
+    private ImageView EyebrowsN;
+    @FXML
+    private ImageView AccessoriesN;
     //Variables and Lists
 
     static String nombreUsuario;
     private LinkedList<EmojiImage> lFaces;
     private LinkedList<EmojiImage> lEyes;
     private LinkedList<EmojiImage> lMouth;
+    private LinkedList<EmojiImage> lEyebrows;
+    private LinkedList<EmojiImage> lAccessories;
     private EmojiImage PreviousNodeF;
     private EmojiImage PreviousNodeE;
     private EmojiImage PreviousNodeM;
+    private EmojiImage PreviousNodeEb;
+    private EmojiImage PreviousNodeA;
     private EmojiImage CurrentNodeF;
     private EmojiImage CurrentNodeE;
     private EmojiImage CurrentNodeM;
+    private EmojiImage CurrentNodeEb;
+    private EmojiImage CurrentNodeA;
     private EmojiImage NextNodeF;
     private EmojiImage NextNodeE;
     private EmojiImage NextNodeM;
+    private EmojiImage NextNodeEb;
+    private EmojiImage NextNodeA;
     private LinkedList<ImageView> Emoji = new LinkedList();
     
     
     
     
-    @Override
+@Override
     public void initialize(URL url, ResourceBundle rb) {
-
         loadLFaces();
         loadLEyes();
         loadLMouth();
+        loadLEyebrows();
+        loadLAccessories();
         Emoji.add(FaceM,0);
         Emoji.add(EyesM,1);
         Emoji.add(MouthM,2);
+        Emoji.add(EyebrowsM,4);
+        Emoji.add(AccessoriesM,5);
         loadToFFHBoxFirst3();
         loadToEFHBoxFirst3();
         loadToMFHBoxFirst3();
+        loadToEbFHBoxFirst3();
+        loadToAFHBoxFirst3();
     }    
     @FXML
     public void mouseFClicked(MouseEvent e) {
@@ -173,6 +208,38 @@ public class NuevoEmojiController implements Initializable {
         if(e.getTarget().equals(MouthP)){
         loadToMPHBox();
         loadToEmojiSetM();
+        }
+    }
+    @FXML
+    public void mouseEbClicked(MouseEvent e) {
+        System.out.println(e.getSource().toString());
+        System.out.println(e.getTarget().toString());
+        if(e.getTarget().equals(EyebrowsM)){
+        loadToEmojiSetEb();
+        }
+        if(e.getTarget().equals(EyebrowsN)){
+        loadToEbFHBox();
+        loadToEmojiSetEb();
+        }
+        if(e.getTarget().equals(EyebrowsP)){
+        loadToEbPHBox();
+        loadToEmojiSetEb();
+        }
+    }
+    @FXML
+    public void mouseAClicked(MouseEvent e) {
+        System.out.println(e.getSource().toString());
+        System.out.println(e.getTarget().toString());
+        if(e.getTarget().equals(AccessoriesM)){
+        loadToEmojiSetA();
+        }
+        if(e.getTarget().equals(AccessoriesN)){
+        loadToAFHBox();
+        loadToEmojiSetA();
+        }
+        if(e.getTarget().equals(AccessoriesP)){
+        loadToAPHBox();
+        loadToEmojiSetA();
         }
     }
     
@@ -225,14 +292,26 @@ public class NuevoEmojiController implements Initializable {
     public void loadLFaces(){
         lFaces=loadImages("faces");
     }
-    
     public void loadLEyes(){
         lEyes=loadImages("eyes");
     }
     public void loadLMouth(){
         lMouth=loadImages("mouth");
+    }   
+    public void loadLEyebrows(){
+        lEyebrows=loadImages("eyebrows");
     }
-    
+    public void loadLAccessories(){
+        lAccessories=loadImages("accessories");
+    }
+    public void refreshEmojiSet(){
+       EmojiSet.getChildren().clear();
+       EmojiSet.getChildren().add(0,Emoji.get(0));
+       EmojiSet.getChildren().add(1,Emoji.get(1));
+       EmojiSet.getChildren().add(2,Emoji.get(2));
+       EmojiSet.getChildren().add(3,Emoji.get(3));
+       EmojiSet.getChildren().add(4,Emoji.get(4));
+    }
     //Face
 public void loadToFFHBoxFirst3(){
         EmojiImage p = lFaces.get(lFaces.size()-1);
@@ -254,10 +333,7 @@ public void loadToFFHBoxFirst3(){
        ImageView e=Emoji.get(1);
        ImageView m=Emoji.get(2);
        Emoji.set(0, d);
-       EmojiSet.getChildren().clear();
-       EmojiSet.getChildren().add(0,Emoji.get(0));
-       EmojiSet.getChildren().add(1,Emoji.get(1));
-       EmojiSet.getChildren().add(2,Emoji.get(2));
+       refreshEmojiSet();
     }
     
     public void loadToFFHBox(){
@@ -280,7 +356,7 @@ public void loadToFFHBoxFirst3(){
     }
     
     public EmojiImage moveFListFoward(){  
-        for(int i=0;lFaces.size()>i;i++){
+        for(int i=0;lFaces.size()>i;i++){       
         if(lFaces.get(i).equals(CurrentNodeF)){
         if(i+1==lFaces.size()){
         return lFaces.get(0);
@@ -332,7 +408,7 @@ public void loadToFFHBoxFirst3(){
         loadToEmojiSetF();
     }
     
-    //Comenta Todo mientras tanto
+
        //MOUTH 
     public void loadToMFHBoxFirst3(){
         EmojiImage p = lMouth.get(lMouth.size()-1);
@@ -355,10 +431,7 @@ public void loadToFFHBoxFirst3(){
        ImageView f=Emoji.get(0);
        ImageView e=Emoji.get(1);
        Emoji.set(2,d);
-       EmojiSet.getChildren().clear();
-       EmojiSet.getChildren().add(0,Emoji.get(0));
-       EmojiSet.getChildren().add(1,Emoji.get(1));
-       EmojiSet.getChildren().add(2,Emoji.get(2));
+       refreshEmojiSet();
     }
     
     public void loadToMFHBox(){
@@ -392,7 +465,7 @@ public void loadToFFHBoxFirst3(){
         return lMouth.get(0);
     }
     
-    //change void for EmojiImage
+
     public EmojiImage moveMListBack(){  
         for(int i=lMouth.size()-1;i>0;i--){
         if(lMouth.get(i).equals(CurrentNodeM)){
@@ -456,10 +529,7 @@ public void loadToFFHBoxFirst3(){
        ImageView f=Emoji.get(0);
        ImageView m=Emoji.get(2);
        Emoji.set(1,d);
-       EmojiSet.getChildren().clear();
-       EmojiSet.getChildren().add(0,Emoji.get(0));
-       EmojiSet.getChildren().add(1,Emoji.get(1));
-       EmojiSet.getChildren().add(2,Emoji.get(2));
+       refreshEmojiSet();
     }
     
     public void loadToEFHBox(){   
@@ -532,6 +602,195 @@ public void loadToFFHBoxFirst3(){
     public void movePEHBox(){
         loadToEPHBox();
         loadToEmojiSetE();
+    }
+    //EYEBROWS
+
+        public void loadToEbFHBoxFirst3(){
+        EmojiImage p = lEyebrows.get(lEyebrows.size()-1);
+        EmojiImage m = lEyebrows.get(0);
+        CurrentNodeEb=m;
+        EmojiImage n = moveEbListFoward();
+        EyebrowsP= new ImageView(p.getImage());
+        EyebrowsM= new ImageView(m.getImage());
+        EyebrowsN= new ImageView(n.getImage());
+        ListEyebrows.getChildren().set(1, EyebrowsP);
+        ListEyebrows.getChildren().set(2, EyebrowsM);
+        ListEyebrows.getChildren().set(3, EyebrowsN);
+    }
+    public void loadToEmojiSetEb(){
+       Image i= CurrentNodeEb.getImage();
+       ImageView d= new ImageView(i);
+       d.setId(CurrentNodeEb.getName());
+       d.setLayoutY(-15);     
+       Emoji.set(3,d);
+       refreshEmojiSet();
+    }
+    
+    public void loadToEbFHBox(){   
+       PreviousNodeEb=CurrentNodeEb;
+       CurrentNodeEb=moveEbListFoward();  
+       NextNodeEb=moveEbListFoward();
+       ImageView c= new ImageView(CurrentNodeEb.getImage());
+       c.setId(CurrentNodeEb.getName());
+       EyebrowsM=c;
+       ImageView p= new ImageView(PreviousNodeEb.getImage());
+       p.setId(PreviousNodeEb.getName());
+       EyebrowsP=p;
+       ImageView n= new ImageView(NextNodeEb.getImage());
+       n.setId(NextNodeEb.getName());
+       EyebrowsN=n;
+       ListEyebrows.getChildren().set(1, EyebrowsP);
+       ListEyebrows.getChildren().set(2, EyebrowsM);
+       ListEyebrows.getChildren().set(3, EyebrowsN); 
+       System.out.println(CurrentNodeEb.getName());
+    }
+    
+    public EmojiImage moveEbListFoward(){  
+        for(int i=0;lEyebrows.size()>i;i++){
+        if(lEyebrows.get(i).equals(CurrentNodeEb)){
+        if(i+1==lEyebrows.size()){
+        return lEyebrows.get(0);
+        }
+        return lEyebrows.get(i+1);
+        }
+        }
+        return lEyebrows.get(0);
+    }
+    public EmojiImage moveEbListBack(){  
+       for(int i=lEyebrows.size()-1;i>0;i--){
+        if(lEyebrows.get(i).equals(CurrentNodeEb)){
+        if(i-1==lEyebrows.size()){
+        return lEyebrows.get(lEyebrows.size()-1);
+        }
+        return lEyebrows.get(i-1);
+        }
+        }
+        return lEyebrows.get(lEyebrows.size()-1);
+    }
+    
+       public void loadToEbPHBox(){
+       NextNodeEb=CurrentNodeEb;
+       CurrentNodeEb=moveEbListBack();  
+       PreviousNodeEb=moveEbListBack();
+       ImageView c= new ImageView(CurrentNodeEb.getImage());
+       c.setId(CurrentNodeEb.getName());
+       EyebrowsM=c;
+       ImageView p= new ImageView(PreviousNodeEb.getImage());
+       p.setId(PreviousNodeEb.getName());
+       EyebrowsP=p;
+       ImageView n= new ImageView(NextNodeEb.getImage());
+       n.setId(NextNodeEb.getName());
+       EyebrowsN=n;
+       ListEyebrows.getChildren().set(1, EyebrowsP);
+       ListEyebrows.getChildren().set(2, EyebrowsM);
+       ListEyebrows.getChildren().set(3, EyebrowsN); 
+       System.out.println(CurrentNodeEb.getName());
+    }
+    
+    @FXML
+    public void moveNEbHBox(){
+        loadToEbFHBox();
+        loadToEmojiSetEb();
+    }
+    @FXML
+    public void movePEbHBox(){
+        loadToEbPHBox();
+        loadToEmojiSetEb();
+    }
+
+    //ACCESSORIES
+    
+        public void loadToAFHBoxFirst3(){
+        EmojiImage p = lAccessories.get(lAccessories.size()-1);
+        EmojiImage m = lAccessories.get(0);
+        CurrentNodeA=m;
+        EmojiImage n = moveAListFoward();
+        AccessoriesP= new ImageView(p.getImage());
+        AccessoriesM= new ImageView(m.getImage());
+        AccessoriesN= new ImageView(n.getImage());
+        ListAccessories.getChildren().set(1, AccessoriesP);
+        ListAccessories.getChildren().set(2, AccessoriesM);
+        ListAccessories.getChildren().set(3, AccessoriesN);
+    }
+    public void loadToEmojiSetA(){
+       Image i= CurrentNodeA.getImage();
+       ImageView d= new ImageView(i);
+       d.setId(CurrentNodeA.getName());
+       d.setLayoutY(10);     
+       Emoji.set(4,d);
+       refreshEmojiSet();
+    }
+    
+    public void loadToAFHBox(){   
+       PreviousNodeA=CurrentNodeA;
+       CurrentNodeA=moveAListFoward();  
+       NextNodeA=moveAListFoward();
+       ImageView c= new ImageView(CurrentNodeA.getImage());
+       c.setId(CurrentNodeA.getName());
+       AccessoriesM=c;
+       ImageView p= new ImageView(PreviousNodeA.getImage());
+       p.setId(PreviousNodeA.getName());
+       AccessoriesP=p;
+       ImageView n= new ImageView(NextNodeA.getImage());
+       n.setId(NextNodeA.getName());
+       AccessoriesN=n;
+       ListAccessories.getChildren().set(1, AccessoriesP);
+       ListAccessories.getChildren().set(2, AccessoriesM);
+       ListAccessories.getChildren().set(3, AccessoriesN); 
+       System.out.println(CurrentNodeA.getName());
+    }
+    
+    public EmojiImage moveAListFoward(){  
+        for(int i=0;lAccessories.size()>i;i++){
+        if(lAccessories.get(i).equals(CurrentNodeA)){
+        if(i+1==lAccessories.size()){
+        return lAccessories.get(0);
+        }
+        return lAccessories.get(i+1);
+        }
+        }
+        return lAccessories.get(0);
+    }
+    public EmojiImage moveAListBack(){  
+       for(int i=lAccessories.size()-1;i>0;i--){
+        if(lAccessories.get(i).equals(CurrentNodeA)){
+        if(i-1==lAccessories.size()){
+        return lAccessories.get(lAccessories.size()-1);
+        }
+        return lAccessories.get(i-1);
+        }
+        }
+        return lAccessories.get(lAccessories.size()-1);
+    }
+    
+       public void loadToAPHBox(){
+       NextNodeA=CurrentNodeA;
+       CurrentNodeA=moveAListBack();  
+       PreviousNodeA=moveAListBack();
+       ImageView c= new ImageView(CurrentNodeA.getImage());
+       c.setId(CurrentNodeA.getName());
+       AccessoriesM=c;
+       ImageView p= new ImageView(PreviousNodeA.getImage());
+       p.setId(PreviousNodeA.getName());
+       AccessoriesP=p;
+       ImageView n= new ImageView(NextNodeA.getImage());
+       n.setId(NextNodeA.getName());
+       AccessoriesN=n;
+       ListAccessories.getChildren().set(1, AccessoriesP);
+       ListAccessories.getChildren().set(2, AccessoriesM);
+       ListAccessories.getChildren().set(3, AccessoriesN); 
+       System.out.println(CurrentNodeA.getName());
+    }
+    
+    @FXML
+    public void moveNAHBox(){
+        loadToAFHBox();
+        loadToEmojiSetA();
+    }
+    @FXML
+    public void movePAHBox(){
+        loadToAPHBox();
+        loadToEmojiSetA();
     }
     
     public static void setNombreUsuario(String nombre) {
