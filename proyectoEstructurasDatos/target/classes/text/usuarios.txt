@@ -1,6 +1,3 @@
 Usuario,Contraseña
-admin1,12345678
-alopez,al123456
-mcastro,mc123456
-mbarcos,mb123456
-admin2.0,12345678
+medardo,123456789
+diego,987654321

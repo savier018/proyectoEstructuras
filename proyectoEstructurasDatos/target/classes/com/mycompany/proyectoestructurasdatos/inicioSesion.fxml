@@ -15,11 +15,6 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="758.0" style="-fx-background-color: #48D1CC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectoestructurasdatos.InicioSesionController">
    <children>
-      <ImageView fitHeight="383.0" fitWidth="758.0" pickOnBounds="true">
-         <image>
-            <Image url="@../imagenes/fon2.jpg" />
-         </image>
-      </ImageView>
       <Label layoutX="270.0" layoutY="45.0" text="Inicio de sesión" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
@@ -30,7 +25,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="usuario" layoutX="217.0" layoutY="136.0" prefHeight="26.0" prefWidth="323.0" />
+      <TextField fx:id="usuario" layoutX="217.0" layoutY="136.0" prefHeight="26.0" prefWidth="323.0" style="-fx-background-radius: 10;" />
       <Label layoutX="215.0" layoutY="178.0" text="Clave" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -45,19 +40,19 @@
             </DropShadow>
          </effect>
          <font>
-            <Font name="Arial Bold" size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="55.0" fitWidth="77.0" layoutX="238.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="55.0" fitWidth="77.0" layoutX="210.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../imagenes/usuario.png" />
+            <Image url="@../../../Images/images%20gui/user.png" />
          </image>
       </ImageView>
       <PasswordField fx:id="clave" layoutX="217.0" layoutY="205.0" prefHeight="26.0" prefWidth="323.0" />
-      <TextField fx:id="clavetf1" layoutX="217.0" layoutY="205.0" prefHeight="26.0" prefWidth="323.0" />
+      <TextField fx:id="clavetf1" layoutX="217.0" layoutY="205.0" prefHeight="27.0" prefWidth="323.0" style="-fx-background-radius: 10;" />
       <Button fx:id="registrobtn" layoutX="218.0" layoutY="312.0" mnemonicParsing="false" onAction="#registrar" onMouseClicked="#registrar" prefHeight="30.0" prefWidth="323.0" style="-fx-background-color: #87CEFA;" text="Registrarse" textAlignment="RIGHT" textOverrun="CLIP">
          <effect>
             <DropShadow>
@@ -67,12 +62,15 @@
             </DropShadow>
          </effect>
          <font>
-            <Font name="Arial Bold" size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <CheckBox fx:id="vistaclave" layoutX="441.0" layoutY="183.0" mnemonicParsing="false" onAction="#visible" text="Show Password" />
+      <CheckBox fx:id="vistaclave" layoutX="413.0" layoutY="182.0" mnemonicParsing="false" onAction="#visible" text="Show Password">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></CheckBox>
    </children>
 </Pane>

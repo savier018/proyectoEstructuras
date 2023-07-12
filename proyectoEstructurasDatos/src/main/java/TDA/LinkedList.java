@@ -1,11 +1,12 @@
 package TDA;
 
-import java.util.HashSet;
 import java.util.Iterator;
 
 public class LinkedList<E> implements List<E>, Iterable<E> {
    
     private Node<E> cabeza;
+    private Node<E> currentNodeNext;
+    private Node<E> currentNodePrev;
 
     public LinkedList() {
         this.cabeza = null;
@@ -105,27 +106,18 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
     public Iterator<E> iterator() {
         return new Iterator<E>() {
             private Node<E> nodoActual = cabeza;
-            private boolean esPrimero = false;
+
 
             @Override
             public boolean hasNext() {
-                if (esPrimero){
-                    return nodoActual != null;
-                } else {
-                    return nodoActual != cabeza;
-                }
+                return nodoActual != null;
             }
 
             @Override
             public E next() {
-                nodoActual = nodoActual.getNext();
-                
-                if (esPrimero){
-                    return nodoActual.getContent();
-                } else {
-                    esPrimero = true;
-                    return nodoActual.getContent();
-                }
+               E contenido = nodoActual.getContent();
+               nodoActual = nodoActual.getNext();            
+               return contenido;              
             }                      
         };
     }
@@ -210,19 +202,31 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
     }
     
     public E getNext(){
-        if (cabeza != null){
-           Node<E> nodoSiguiente = this.cabeza.getNext();
-           return nodoSiguiente.getContent();
+        if (isEmpty()) {
+            return null;  
+        } else if (currentNodeNext == null) {
+            currentNodeNext = cabeza.getNext();  
+        } else {
+            currentNodeNext = currentNodeNext.getNext();  
+            if (currentNodeNext == null) {
+                currentNodeNext = cabeza.getNext();  
+            }
         }
-        return null;
+        return currentNodeNext.getContent();
     }
     
     public E getPrev(){
-        if (cabeza != null){
-            Node<E> nodoPrevio = this.cabeza.getPrev();
-            return nodoPrevio.getContent();
+        if (isEmpty()) {
+            return null;  
+        } else if (currentNodePrev == null) {
+            currentNodePrev = cabeza.getPrev();  
+        } else {
+            currentNodePrev = currentNodePrev.getPrev();  
+            if (currentNodePrev== null) {
+                currentNodePrev = cabeza.getPrev();  
+            }
         }
-        return null;
+        return currentNodePrev.getContent();
     }
     
 }
