@@ -35,6 +35,10 @@ public class SeguirController implements Initializable {
     @FXML
     private HBox hb;
     
+    private Pane EmojiSetA;
+    
+    private ArrayList<Pane> listaEmojiSet;
+    
     static String nombreUsuario;
     /**
      * Initializes the controller class.
@@ -45,24 +49,39 @@ public class SeguirController implements Initializable {
         LinkedList<EmojiImage> listaEmojisF = listaEmojis.get(0);
         LinkedList<EmojiImage> listaEmojisE = listaEmojis.get(1);
         LinkedList<EmojiImage> listaEmojisM = listaEmojis.get(2);
-        
-        
-        
+        listaEmojiSet = new ArrayList<>();
         for(int i =0;i<listaEmojisF.size();i++){
             Image Face = listaEmojisF.get(i).getImage();
             Image Eyes = listaEmojisE.get(i).getImage();
             Image Mouth = listaEmojisM.get(i).getImage();
-            
+            Pane EmojiSet = new Pane();
             ImageView cara = new ImageView(Face);
-            hb.getChildren().add(cara);
+            ImageView ojos = new ImageView(Eyes);
+            ImageView boca = new ImageView(Mouth);
+            EmojiSet.getChildren().add(0,cara);
+            EmojiSet.getChildren().add(1,ojos);
+            EmojiSet.getChildren().add(2,boca);
+            listaEmojiSet.addLast(EmojiSet);
+            hb.getChildren().add(EmojiSet);
         }
-        
         
     }    
     
    public void setear(){
        
    }
+   
+    @FXML
+    public void mouseClicked(MouseEvent e) {
+        System.out.println(e.getSource().toString());
+        System.out.println(e.getTarget().toString());
+        for(int i = 0; i<listaEmojiSet.size();i++){
+            if(e.getTarget().equals(listaEmojiSet.get(i))){
+                this.EmojiSetA = listaEmojiSet.get(i);
+            }
+        }
+        
+    }
    
    public static ArrayList<LinkedList> cargarEmojis(){
        ArrayList<LinkedList> listaEmojis = new ArrayList();
@@ -109,7 +128,7 @@ public class SeguirController implements Initializable {
             App.setRoot("pantallaUsuario1");
             } 
         catch (IOException ex) {
-            
+            volverbtn.setDisable(true);
             } 
     }
     

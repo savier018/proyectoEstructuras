@@ -64,7 +64,7 @@ public class InicioSesionController implements Initializable {
                     PantallaUsuario1Controller.setUsuario(u);
                     NuevoEmojiController.setNombreUsuario(user);
                     SeguirController.setNombreUsuario(user);
-                    //u.cargarListaEmoji();
+                    
                     try {       
                         
                         App.setRoot("pantallaUsuario1");

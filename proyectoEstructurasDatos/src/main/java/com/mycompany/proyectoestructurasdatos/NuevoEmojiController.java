@@ -64,6 +64,8 @@ public class NuevoEmojiController implements Initializable {
     @FXML
     private Button acceptbtn;
     @FXML
+    private Button volverbtn;
+    @FXML
     private Button nextF;
     @FXML
     private Button prevF;
@@ -258,7 +260,7 @@ public class NuevoEmojiController implements Initializable {
                 bw.write(listaFaces.get(i).getName()+","+listaEyes.get(i).getName()+","+listaMouth.get(i).getName());
             }
             bw.newLine();
-            bw.write(CurrentNodeF+","+CurrentNodeE+","+CurrentNodeM);
+            bw.write(CurrentNodeF.getName()+","+CurrentNodeE.getName()+","+CurrentNodeM.getName());
         }catch (IOException e){
             System.out.println("error");
         }
@@ -793,7 +795,19 @@ public void loadToFFHBoxFirst3(){
         loadToEmojiSetA();
     }
     
+    @FXML
+    void volver()throws IOException {
+        try {                          
+            App.setRoot("pantallaUsuario1");
+            } 
+        catch (IOException ex) {
+            
+            } 
+    }
+    
     public static void setNombreUsuario(String nombre) {
         nombreUsuario = nombre;
     }
+    
+    
 }
