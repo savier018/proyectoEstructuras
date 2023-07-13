@@ -85,6 +85,8 @@ public class NuevoEmojiController implements Initializable {
     private Button nextA;
     @FXML
     private Button prevA;
+    @FXML
+    private Button eliminarC;
     
     @FXML
     static ImageView FaceS;
@@ -153,7 +155,9 @@ public class NuevoEmojiController implements Initializable {
     private EmojiImage NextNodeM;
     private EmojiImage NextNodeEb;
     private EmojiImage NextNodeA;
+    private String deleteNode;
     private LinkedList<ImageView> Emoji = new LinkedList();
+    
     
     
     
@@ -187,9 +191,91 @@ public class NuevoEmojiController implements Initializable {
     }
     
     @FXML
+    public void setHboxDelete(MouseEvent e){
+        System.out.println(deleteNode);
+        if(deleteNode.equals("ListFaces")){
+        eliminarC.setText("eliminarFaces");
+        }
+        if(deleteNode.equals("ListEyes")){
+        eliminarC.setText("eliminarEyes");
+        }
+        if(deleteNode.equals("ListMouth")){
+        eliminarC.setText("eliminarMouth");
+        }
+        if(deleteNode.equals("ListAccessories")){
+        eliminarC.setText("eliminarAccessories");
+        }
+        if(deleteNode.equals("ListEyebrows")){
+        eliminarC.setText("eliminarEyebrows");
+        }
+    }
+    @FXML
+    public void DeleteFromHBox(){
+        String l=eliminarC.getText().substring(8);
+        System.out.println(l);
+        if(l.equals("Faces")){          
+        for(int i=0;lFaces.size()>i;i++){
+        if(lFaces.get(i).equals(CurrentNodeF)){
+        String e = lFaces.get(i).getName();
+        System.out.println(e);
+        lFaces.remove(i);
+        //DeleteFromTXT("faces.txt",e);
+        loadToFDHBox();
+        }}
+        }
+        if(l.equals("Eyes")){
+        for(int i=0;lEyes.size()>i;i++){
+        if(lEyes.get(i).equals(CurrentNodeE)){
+        String e = lEyes.get(i).getName();
+        System.out.println(e);
+        //lEyes.remove(i);
+        //DeleteFromTXT("eyes.txt",e);
+        //loadToEFHBox();
+        }
+        }
+        }
+        if(l.equals("Mouth")){
+        for(int i=0;lMouth.size()>i;i++){
+        if(lMouth.get(i).equals(CurrentNodeM)){
+        String e = lMouth.get(i).getName();
+        System.out.println(e);
+        //lMouth.remove(i);
+        //DeleteFromTXT("mouth.txt",e);
+        //loadToMFHBox();
+        }}
+        }
+        if(l.equals("Eyebrows")){
+        for(int i=0;lEyebrows.size()>i;i++){
+        if(lEyebrows.get(i).equals(CurrentNodeEb)){
+        String e = lEyebrows.get(i).getName();
+        System.out.println(e);
+        //lEyebrows.remove(i);
+        //DeleteFromTXT("eyebrows.txt",e);
+        //loadToEbFHBox();
+        }}    
+        }
+        if(l.equals("Accessories")){
+        for(int i=0;lAccessories.size()>i;i++){
+        if(lAccessories.get(i).equals(CurrentNodeA)){
+        String e = lAccessories.get(i).getName();
+        System.out.println(e);
+        //lAccessories.remove(i);
+        //DeleteFromTXT("accessories.txt",e);
+        //loadToAFHBox();
+        }}
+        }
+    }
+    
+    public void DeleteFromTXT(String archivo,String elemento){
+    
+    };
+    
+    @FXML
     public void mouseFClicked(MouseEvent e) {
         System.out.println(e.getSource().toString());
         System.out.println(e.getTarget().toString());
+        String s=e.getSource().toString().substring(8);
+        deleteNode=s.substring(0,s.length()-1);
         if(e.getTarget().equals(FaceM)){
         loadToEmojiSetF();
         }
@@ -206,6 +292,8 @@ public class NuevoEmojiController implements Initializable {
     public void mouseEClicked(MouseEvent e) {
         System.out.println(e.getSource().toString());
         System.out.println(e.getTarget().toString());
+        String s=e.getSource().toString().substring(8);
+        deleteNode=s.substring(0,s.length()-1);
         if(e.getTarget().equals(EyesM)){
         loadToEmojiSetE();
         }
@@ -222,6 +310,8 @@ public class NuevoEmojiController implements Initializable {
     public void mouseMClicked(MouseEvent e) {
         System.out.println(e.getSource().toString());
         System.out.println(e.getTarget().toString());
+        String s=e.getSource().toString().substring(8);
+        deleteNode=s.substring(0,s.length()-1);
         if(e.getTarget().equals(MouthM)){
         loadToEmojiSetM();
         }
@@ -238,6 +328,8 @@ public class NuevoEmojiController implements Initializable {
     public void mouseEbClicked(MouseEvent e) {
         System.out.println(e.getSource().toString());
         System.out.println(e.getTarget().toString());
+        String s=e.getSource().toString().substring(8);
+        deleteNode=s.substring(0,s.length()-1);
         if(e.getTarget().equals(EyebrowsM)){
         loadToEmojiSetEb();
         }
@@ -254,6 +346,8 @@ public class NuevoEmojiController implements Initializable {
     public void mouseAClicked(MouseEvent e) {
         System.out.println(e.getSource().toString());
         System.out.println(e.getTarget().toString());
+        String s=e.getSource().toString().substring(8);
+        deleteNode=s.substring(0,s.length()-1);
         if(e.getTarget().equals(AccessoriesM)){
         loadToEmojiSetA();
         }
@@ -364,6 +458,24 @@ public void loadToFFHBoxFirst3(){
        PreviousNodeF=CurrentNodeF;
        CurrentNodeF=moveFListFoward();  
        NextNodeF=moveFListFoward();
+       ImageView c= new ImageView(CurrentNodeF.getImage());
+       c.setId(CurrentNodeF.getName());
+       FaceM=c;
+       ImageView p= new ImageView(PreviousNodeF.getImage());
+       p.setId(PreviousNodeF.getName());
+       FaceP=p;
+       ImageView n= new ImageView(NextNodeF.getImage());
+       n.setId(NextNodeF.getName());
+       FaceN=n;
+       ListFaces.getChildren().set(1, FaceP);
+       ListFaces.getChildren().set(2, FaceM);
+       ListFaces.getChildren().set(3, FaceN); 
+       System.out.println(CurrentNodeF.getName());
+    }
+    
+    public void loadToFDHBox(){
+       CurrentNodeF=PreviousNodeF;
+       PreviousNodeF=moveFListBack();  
        ImageView c= new ImageView(CurrentNodeF.getImage());
        c.setId(CurrentNodeF.getName());
        FaceM=c;
@@ -740,7 +852,7 @@ public void loadToFFHBoxFirst3(){
        Image i= CurrentNodeA.getImage();
        ImageView d= new ImageView(i);
        d.setId(CurrentNodeA.getName());
-       d.setLayoutY(10);     
+       d.setLayoutY(-10);
        Emoji.set(4,d);
        refreshEmojiSet();
     }

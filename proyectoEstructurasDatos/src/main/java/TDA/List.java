@@ -20,6 +20,8 @@ public interface List<E> {
     
     public boolean removeLast();
     
+    public boolean remove(int index);
+    
     @Override
     public String toString();
     

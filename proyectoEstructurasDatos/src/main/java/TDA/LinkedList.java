@@ -101,6 +101,35 @@ public class LinkedList<E> implements List<E>, Iterable<E> {
         }
         return true;
     }
+    @Override
+    public boolean remove(int index) {
+        if (isEmpty()){
+            return false;
+        } else if (index<0 || index>size()) {
+            throw new IndexOutOfBoundsException("Fuera de Rango");
+        } else if (index==0){
+        return removeFirst();
+        } else if(index== size()-1){
+            return removeLast();
+        }else{
+        
+        
+        Node<E> nodoActual = cabeza;
+        for (int i = 0; i < index -1; i++) {
+            nodoActual = nodoActual.getNext();
+        }
+        
+        Node<E> nodoAnterior= nodoActual.getPrev();
+        Node<E> nodoSiguiente= nodoActual.getNext();
+        nodoAnterior.setNext(nodoSiguiente);
+        nodoSiguiente.setPrev(nodoAnterior); 
+        nodoActual.setNext(null);
+        nodoActual.setPrev(null);
+        
+        
+        }
+        return true;
+    }
 
     @Override
     public Iterator<E> iterator() {
