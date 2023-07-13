@@ -9,11 +9,11 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #ED4956, #8134AF);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectoestructurasdatos.PantallaUsuario1Controller">
    <children>
-      <Button fx:id="nuevobtn" layoutX="165.0" layoutY="175.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="50.0" prefWidth="79.0" text="+">
+      <Button fx:id="nuevobtn" layoutX="165.0" layoutY="175.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="50.0" prefWidth="79.0" style="-fx-background-color: #6A5ACD; -fx-background-radius: 10;" text="+">
          <font>
             <Font name="System Bold" size="23.0" />
          </font></Button>
-      <Button fx:id="seguirbtn" layoutX="345.0" layoutY="175.0" mnemonicParsing="false" onAction="#seguir" onMouseClicked="#seguir" prefHeight="50.0" prefWidth="79.0">
+      <Button fx:id="seguirbtn" layoutX="345.0" layoutY="175.0" mnemonicParsing="false" onAction="#seguir" onMouseClicked="#seguir" prefHeight="50.0" prefWidth="79.0" style="-fx-background-color: #6A5ACD; -fx-background-radius: 10;">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,7 +26,7 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></TextField>
-      <Button fx:id="volverbtn" alignment="CENTER_RIGHT" layoutX="42.0" layoutY="328.0" mnemonicParsing="false" onAction="#volver" prefHeight="40.0" prefWidth="99.0" text="Volver">
+      <Button fx:id="volverbtn" alignment="CENTER_RIGHT" layoutX="42.0" layoutY="328.0" mnemonicParsing="false" onAction="#volver" prefHeight="40.0" prefWidth="99.0" style="-fx-background-color: #6A5ACD; -fx-background-radius: 10;" text="Volver">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

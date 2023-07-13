@@ -87,6 +87,18 @@ public class NuevoEmojiController implements Initializable {
     private Button prevA;
     
     @FXML
+    static ImageView FaceS;
+    @FXML
+     static ImageView EyesS;
+    @FXML
+     static ImageView MouthS;
+    @FXML
+     static ImageView EyebrowsS;
+    @FXML
+    static ImageView AccessoriesS;
+    static boolean f=false;
+    
+    @FXML
     private Pane EmojiSet;
     @FXML
     private ImageView FaceM;
@@ -153,6 +165,9 @@ public class NuevoEmojiController implements Initializable {
         loadLMouth();
         loadLEyebrows();
         loadLAccessories();
+        if(f){
+        setAllStartingNode();
+        }
         Emoji.add(FaceM,0);
         Emoji.add(EyesM,1);
         Emoji.add(MouthM,2);
@@ -164,6 +179,13 @@ public class NuevoEmojiController implements Initializable {
         loadToEbFHBoxFirst3();
         loadToAFHBoxFirst3();
     }    
+    
+    public void setAllStartingNode(){
+        FaceM=FaceS;
+        EyesM=EyesS;
+        MouthM=MouthS;
+    }
+    
     @FXML
     public void mouseFClicked(MouseEvent e) {
         System.out.println(e.getSource().toString());
