@@ -169,14 +169,12 @@ public class NuevoEmojiController implements Initializable {
         loadLMouth();
         loadLEyebrows();
         loadLAccessories();
-        if(f){
-        setAllStartingNode();
-        }
+        
         Emoji.add(FaceM,0);
         Emoji.add(EyesM,1);
         Emoji.add(MouthM,2);
-        Emoji.add(EyebrowsM,4);
-        Emoji.add(AccessoriesM,5);
+        Emoji.add(EyebrowsM,3);
+        Emoji.add(AccessoriesM,4);
         loadToFFHBoxFirst3();
         loadToEFHBoxFirst3();
         loadToMFHBoxFirst3();
@@ -221,7 +219,8 @@ public class NuevoEmojiController implements Initializable {
         DeleteFromTXT("faces.txt",e);
         lFaces.remove(i);
         loadToFDHBox();
-        }}
+        }
+        }
         }
         if(l.equals("Eyes")){
         for(int i=0;lEyes.size()>i;i++){
@@ -586,8 +585,6 @@ public void loadToFFHBoxFirst3(){
        ImageView d= new ImageView(i);
        d.setId(CurrentNodeM.getName());
        d.setLayoutY(10);
-       ImageView f=Emoji.get(0);
-       ImageView e=Emoji.get(1);
        Emoji.set(2,d);
        refreshEmojiSet();
     }
