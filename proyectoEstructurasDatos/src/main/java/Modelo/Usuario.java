@@ -54,7 +54,7 @@ public class Usuario {
     
      public static void sobreescribirFichero(ArrayList<Usuario> usuarios){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/main/resources/text/usuarios.txt"));){
-            bw.write("Usuario,Contraseña");
+            bw.write("Usuario,Contrasena");
             for(int i = 0;i<usuarios.size();i++){
                 Usuario u= usuarios.get(i);
                 bw.newLine();

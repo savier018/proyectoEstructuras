@@ -10,7 +10,11 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
+<<<<<<< HEAD
                 <exec.vmArgs>--module-path C:\Users\User\Downloads\openjfx-19_windows-x64_bin-sdk\javafx-sdk-19\lib --add-modules javafx.controls,javafx.fxml</exec.vmArgs>
+=======
+                <exec.vmArgs>--module-path "" --add-modules javafx.controls,javafx.fxml</exec.vmArgs>
+>>>>>>> 9ac68ebc364193dd7a907d8905b9a110413a41f0
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
                 <exec.mainClass>com.mycompany.proyectoestructurasdatos.App</exec.mainClass>
@@ -47,7 +51,11 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:3.0.0:exec</goal>
             </goals>
             <properties>
+<<<<<<< HEAD
                 <exec.vmArgs>--module-path C:\Users\User\Downloads\openjfx-19_windows-x64_bin-sdk\javafx-sdk-19\lib --add-modules javafx.controls,javafx.fxml</exec.vmArgs>
+=======
+                <exec.vmArgs>--module-path "" --add-modules javafx.controls,javafx.fxml</exec.vmArgs>
+>>>>>>> 9ac68ebc364193dd7a907d8905b9a110413a41f0
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.executable>java</exec.executable>

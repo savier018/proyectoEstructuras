@@ -36,14 +36,19 @@ public class PantallaUsuario1Controller implements Initializable {
     //FXML
     @FXML
     private TextField textNombre;
-    //Variables and Lists
-    static Usuario user;
-    static String nombreUsuario;
-    
+    @FXML
+    private Button volverbtn;
     @FXML
     private Button seguirbtn;
     @FXML
     private Button nuevobtn;
+    
+    //Variables and Lists
+    static Usuario user;
+    static String nombreUsuario;
+    
+   
+    
 
     /**
      * Initializes the controller class.
@@ -64,7 +69,7 @@ public class PantallaUsuario1Controller implements Initializable {
        try {
             App.setRoot("nuevoEmoji");
         }catch (IOException e){
-            System.err.println(e);
+            nuevobtn.setDisable(true);
         }
     }   
     
@@ -97,7 +102,7 @@ public class PantallaUsuario1Controller implements Initializable {
             App.setRoot("inicioSesion");
             } 
         catch (IOException ex) {
-            
+            volverbtn.setDisable(true);
             }    
     }           
     

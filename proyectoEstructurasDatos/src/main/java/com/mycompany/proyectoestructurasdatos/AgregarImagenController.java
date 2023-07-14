@@ -24,7 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-
+import javafx.scene.image.WritableImage;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 /**
@@ -88,6 +88,7 @@ public class AgregarImagenController implements Initializable {
         ArrayList<String> listaDeSi = cargarTextoEmoji();
         registrarEmoji(listaDeSi);
         
+        
     }
     
     public ArrayList<String> cargarTextoEmoji(){
@@ -119,18 +120,18 @@ public class AgregarImagenController implements Initializable {
         }
     }
     
+    
+    
    public void agregarImagenEmoji(){
-        /*String tipo = (String) cmbTipos.getValue();
+        String tipo = (String) cmbTipos.getValue();
         try{
+            String filepath = selectedFile.getAbsolutePath();
             Image image = new Image(selectedFile.getAbsolutePath());
-            BufferedImage br = new BufferedImage(new FileReader("src/main/resources/Images."+tipo));
-            String linea;
-            while((linea=br.readLine())!=null){
-                listaEnombre.addLast(linea);
-            }
+            String fichero =("src/main/resources/Images."+tipo);
+           
         }catch(Exception e){
-    System.err.println(e);
-        } */
+            System.err.println(e);
+        } 
     }
     
     
