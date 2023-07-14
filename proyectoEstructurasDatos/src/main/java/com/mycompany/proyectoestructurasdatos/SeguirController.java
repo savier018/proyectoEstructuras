@@ -49,18 +49,26 @@ public class SeguirController implements Initializable {
         LinkedList<EmojiImage> listaEmojisF = listaEmojis.get(0);
         LinkedList<EmojiImage> listaEmojisE = listaEmojis.get(1);
         LinkedList<EmojiImage> listaEmojisM = listaEmojis.get(2);
+        LinkedList<EmojiImage> listaEmojisA = listaEmojis.get(3);
+        LinkedList<EmojiImage> listaEmojisEb = listaEmojis.get(4);
         listaEmojiSet = new ArrayList<>();
         for(int i =0;i<listaEmojisF.size();i++){
             Image Face = listaEmojisF.get(i).getImage();
             Image Eyes = listaEmojisE.get(i).getImage();
             Image Mouth = listaEmojisM.get(i).getImage();
+            Image Accessories = listaEmojisA.get(i).getImage();
+            Image Eyebrows = listaEmojisEb.get(i).getImage();
             Pane EmojiSet = new Pane();
             ImageView cara = new ImageView(Face);
             ImageView ojos = new ImageView(Eyes);
             ImageView boca = new ImageView(Mouth);
+            ImageView accesorio = new ImageView(Accessories);
+            ImageView cejas = new ImageView(Eyebrows);
             EmojiSet.getChildren().add(0,cara);
             EmojiSet.getChildren().add(1,ojos);
             EmojiSet.getChildren().add(2,boca);
+            EmojiSet.getChildren().add(3,accesorio);
+            EmojiSet.getChildren().add(4,cejas);
             listaEmojiSet.addLast(EmojiSet);
             hb.getChildren().add(EmojiSet);
         }
@@ -94,10 +102,14 @@ public class SeguirController implements Initializable {
        LinkedList<EmojiImage> listaEmojisF = new LinkedList();
        LinkedList<EmojiImage> listaEmojisE = new LinkedList();
        LinkedList<EmojiImage> listaEmojisM = new LinkedList();
+       LinkedList<EmojiImage> listaEmojisA = new LinkedList();
+       LinkedList<EmojiImage> listaEmojisEb = new LinkedList();
        listaEmojis.addLast(listaEmojisF);
        listaEmojis.addLast(listaEmojisE);
        listaEmojis.addLast(listaEmojisM);
-       String[] tipos = {"faces","eyes","mouth"};
+       listaEmojis.addLast(listaEmojisA);
+       listaEmojis.addLast(listaEmojisEb);
+       String[] tipos = {"faces","eyes","mouth","accessories","eyebrows"};
        try (BufferedReader br = new BufferedReader(new FileReader(String.format("src/main/resources/text/%s.txt",nombreUsuario)));){
             br.readLine();
             String linea;

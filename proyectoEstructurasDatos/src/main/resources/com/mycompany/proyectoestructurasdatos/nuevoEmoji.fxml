@@ -73,5 +73,6 @@
          </graphic>
       </Button>
       <Button fx:id="eliminarC" layoutX="29.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#DeleteFromHBox" text="eliminarFaces" />
+      <Button fx:id="agregarbtn" layoutX="498.0" layoutY="160.0" mnemonicParsing="false" onAction="#agregar" text="agregar" />
    </children>
 </AnchorPane>

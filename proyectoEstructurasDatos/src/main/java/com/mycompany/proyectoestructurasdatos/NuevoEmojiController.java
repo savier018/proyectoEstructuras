@@ -64,6 +64,8 @@ public class NuevoEmojiController implements Initializable {
     @FXML
     private Button acceptbtn;
     @FXML
+    private Button agregarbtn;
+    @FXML
     private Button volverbtn;
     @FXML
     private Button nextF;
@@ -389,14 +391,16 @@ public class NuevoEmojiController implements Initializable {
         LinkedList<EmojiImage> listaFaces = listadeEmojis.get(0);
         LinkedList<EmojiImage> listaEyes = listadeEmojis.get(1);
         LinkedList<EmojiImage> listaMouth = listadeEmojis.get(2);
+        LinkedList<EmojiImage> listaAccessories = listadeEmojis.get(3);
+        LinkedList<EmojiImage> listaEyeBrows = listadeEmojis.get(4);
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(String.format("src/main/resources/text/%s.txt",nombreUsuario)));){
-           bw.write("Cara,Ojos,Boca");
+           bw.write("Cara,Ojos,Boca,Accesorios,Cejas");
            for(int i = 0;i<listaFaces.size();i++){             
                 bw.newLine();
-                bw.write(listaFaces.get(i).getName()+","+listaEyes.get(i).getName()+","+listaMouth.get(i).getName());
+                bw.write(listaFaces.get(i).getName()+","+listaEyes.get(i).getName()+","+listaMouth.get(i).getName()+","+listaAccessories.get(i).getName()+","+listaEyeBrows.get(i).getName());
             }
             bw.newLine();
-            bw.write(CurrentNodeF.getName()+","+CurrentNodeE.getName()+","+CurrentNodeM.getName());
+            bw.write(CurrentNodeF.getName()+","+CurrentNodeE.getName()+","+CurrentNodeM.getName()+","+CurrentNodeA.getName()+","+CurrentNodeEb.getName());
         }catch (IOException e){
             System.out.println("error");
         }
@@ -1015,6 +1019,16 @@ public void loadToFFHBoxFirst3(){
     public void movePAHBox(){
         loadToAPHBox();
         loadToEmojiSetA();
+    }
+    
+    @FXML
+    void agregar() throws IOException {
+        try {                          
+            App.setRoot("agregarImagen");
+            } 
+        catch (IOException ex) {
+            
+            } 
     }
     
     @FXML
