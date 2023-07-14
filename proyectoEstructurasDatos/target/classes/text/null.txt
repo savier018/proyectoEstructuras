@@ -1,0 +1,3 @@
+Cara,Ojos,Boca,Accesorios,Cejas
+faces_1,eyes_1,mouth_1,accessories_1,eyebrows_1
+faces_27,eyes_1,mouth_1,accessories_1,eyebrows_1

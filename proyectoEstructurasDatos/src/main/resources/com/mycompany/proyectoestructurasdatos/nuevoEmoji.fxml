@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFAFA;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectoestructurasdatos.NuevoEmojiController">
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #F58529, #DD2A7B, #8134AF, #515BD4, #0095EB);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyectoestructurasdatos.NuevoEmojiController">
    <children>
       <VBox fx:id="Container" layoutX="142.0" layoutY="200.0" onMouseClicked="#setHboxDelete" prefHeight="147.0" prefWidth="311.0">
          <children>
