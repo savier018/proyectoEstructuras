@@ -218,8 +218,8 @@ public class NuevoEmojiController implements Initializable {
         if(lFaces.get(i).equals(CurrentNodeF)){
         String e = lFaces.get(i).getName();
         System.out.println(e);
+        DeleteFromTXT("faces.txt",e);
         lFaces.remove(i);
-        //DeleteFromTXT("faces.txt",e);
         loadToFDHBox();
         }}
         }
@@ -228,9 +228,9 @@ public class NuevoEmojiController implements Initializable {
         if(lEyes.get(i).equals(CurrentNodeE)){
         String e = lEyes.get(i).getName();
         System.out.println(e);
-        //lEyes.remove(i);
+        lEyes.remove(i);
         //DeleteFromTXT("eyes.txt",e);
-        //loadToEFHBox();
+        loadToEDHBox();
         }
         }
         }
@@ -239,9 +239,9 @@ public class NuevoEmojiController implements Initializable {
         if(lMouth.get(i).equals(CurrentNodeM)){
         String e = lMouth.get(i).getName();
         System.out.println(e);
-        //lMouth.remove(i);
+        lMouth.remove(i);
         //DeleteFromTXT("mouth.txt",e);
-        //loadToMFHBox();
+        loadToMDHBox();
         }}
         }
         if(l.equals("Eyebrows")){
@@ -249,9 +249,9 @@ public class NuevoEmojiController implements Initializable {
         if(lEyebrows.get(i).equals(CurrentNodeEb)){
         String e = lEyebrows.get(i).getName();
         System.out.println(e);
-        //lEyebrows.remove(i);
+        lEyebrows.remove(i);
         //DeleteFromTXT("eyebrows.txt",e);
-        //loadToEbFHBox();
+        loadToEbDHBox();
         }}    
         }
         if(l.equals("Accessories")){
@@ -259,14 +259,35 @@ public class NuevoEmojiController implements Initializable {
         if(lAccessories.get(i).equals(CurrentNodeA)){
         String e = lAccessories.get(i).getName();
         System.out.println(e);
-        //lAccessories.remove(i);
+        lAccessories.remove(i);
         //DeleteFromTXT("accessories.txt",e);
-        //loadToAFHBox();
+        loadToADHBox();
         }}
         }
     }
     
     public void DeleteFromTXT(String archivo,String elemento){
+    ArrayList<String> d= new ArrayList();
+    
+    try (BufferedReader br = new BufferedReader(new FileReader(String.format("src/main/resources/text/"+archivo)));){
+            String linea;
+            while ((linea = br.readLine())!=null){
+                if(!linea.equals(elemento)){
+                d.addLast(linea);
+                System.out.println(linea);
+                }
+            }
+        }catch (IOException e){
+            System.out.print(e);
+        }
+    try (BufferedWriter br = new BufferedWriter(new FileWriter(String.format("src/main/resources/text/"+archivo)));){
+            for (int i=0; d.size()>i;i++){  
+            br.write(d.get(i));
+            br.newLine();
+            }         
+        }catch (IOException e){
+            System.out.print(e);
+        }
     
     };
     
@@ -475,7 +496,8 @@ public void loadToFFHBoxFirst3(){
     
     public void loadToFDHBox(){
        CurrentNodeF=PreviousNodeF;
-       PreviousNodeF=moveFListBack();  
+       NextNodeF=moveFListFoward();
+       PreviousNodeF=moveFListBack();
        ImageView c= new ImageView(CurrentNodeF.getImage());
        c.setId(CurrentNodeF.getName());
        FaceM=c;
@@ -588,7 +610,24 @@ public void loadToFFHBoxFirst3(){
        ListMouth.getChildren().set(3, MouthN); 
        System.out.println(CurrentNodeM.getName());
     }
-    
+    public void loadToMDHBox(){
+       CurrentNodeM=PreviousNodeM;
+       NextNodeM=moveMListFoward();
+       PreviousNodeM=moveMListBack();
+       ImageView c= new ImageView(CurrentNodeM.getImage());
+       c.setId(CurrentNodeM.getName());
+       MouthM=c;
+       ImageView p= new ImageView(PreviousNodeM.getImage());
+       p.setId(PreviousNodeM.getName());
+       MouthP=p;
+       ImageView n= new ImageView(NextNodeM.getImage());
+       n.setId(NextNodeM.getName());
+       MouthN=n;
+       ListMouth.getChildren().set(1, MouthP);
+       ListMouth.getChildren().set(2, MouthM);
+       ListMouth.getChildren().set(3, MouthN); 
+       System.out.println(CurrentNodeM.getName());
+    }
     public EmojiImage moveMListFoward(){  
         for(int i=0;lMouth.size()>i;i++){
         if(lMouth.get(i).equals(CurrentNodeM)){
@@ -686,7 +725,24 @@ public void loadToFFHBoxFirst3(){
        ListEyes.getChildren().set(3, EyesN); 
        System.out.println(CurrentNodeE.getName());
     }
-    
+    public void loadToEDHBox(){   
+       CurrentNodeE=PreviousNodeE;
+       NextNodeE=moveEListFoward();
+       PreviousNodeE=moveEListBack();
+       ImageView c= new ImageView(CurrentNodeE.getImage());
+       c.setId(CurrentNodeE.getName());
+       EyesM=c;
+       ImageView p= new ImageView(PreviousNodeE.getImage());
+       p.setId(PreviousNodeE.getName());
+       EyesP=p;
+       ImageView n= new ImageView(NextNodeE.getImage());
+       n.setId(NextNodeE.getName());
+       EyesN=n;
+       ListEyes.getChildren().set(1, EyesP);
+       ListEyes.getChildren().set(2, EyesM);
+       ListEyes.getChildren().set(3, EyesN); 
+       System.out.println(CurrentNodeE.getName());
+    }
     public EmojiImage moveEListFoward(){  
         for(int i=0;lEyes.size()>i;i++){
         if(lEyes.get(i).equals(CurrentNodeE)){
@@ -780,6 +836,24 @@ public void loadToFFHBoxFirst3(){
        ListEyebrows.getChildren().set(3, EyebrowsN); 
        System.out.println(CurrentNodeEb.getName());
     }
+    public void loadToEbDHBox(){   
+       CurrentNodeEb=PreviousNodeEb;
+       NextNodeEb=moveEbListFoward();
+       PreviousNodeEb=moveEbListBack();
+       ImageView c= new ImageView(CurrentNodeEb.getImage());
+       c.setId(CurrentNodeEb.getName());
+       EyebrowsM=c;
+       ImageView p= new ImageView(PreviousNodeEb.getImage());
+       p.setId(PreviousNodeEb.getName());
+       EyebrowsP=p;
+       ImageView n= new ImageView(NextNodeEb.getImage());
+       n.setId(NextNodeEb.getName());
+       EyebrowsN=n;
+       ListEyebrows.getChildren().set(1, EyebrowsP);
+       ListEyebrows.getChildren().set(2, EyebrowsM);
+       ListEyebrows.getChildren().set(3, EyebrowsN); 
+       System.out.println(CurrentNodeEb.getName());
+    }
     
     public EmojiImage moveEbListFoward(){  
         for(int i=0;lEyebrows.size()>i;i++){
@@ -858,6 +932,24 @@ public void loadToFFHBoxFirst3(){
     }
     
     public void loadToAFHBox(){   
+       CurrentNodeA=PreviousNodeA;
+       NextNodeA=moveAListFoward();
+       PreviousNodeA=moveAListBack();
+       ImageView c= new ImageView(CurrentNodeA.getImage());
+       c.setId(CurrentNodeA.getName());
+       AccessoriesM=c;
+       ImageView p= new ImageView(PreviousNodeA.getImage());
+       p.setId(PreviousNodeA.getName());
+       AccessoriesP=p;
+       ImageView n= new ImageView(NextNodeA.getImage());
+       n.setId(NextNodeA.getName());
+       AccessoriesN=n;
+       ListAccessories.getChildren().set(1, AccessoriesP);
+       ListAccessories.getChildren().set(2, AccessoriesM);
+       ListAccessories.getChildren().set(3, AccessoriesN); 
+       System.out.println(CurrentNodeA.getName());
+    }
+    public void loadToADHBox(){   
        PreviousNodeA=CurrentNodeA;
        CurrentNodeA=moveAListFoward();  
        NextNodeA=moveAListFoward();
@@ -874,8 +966,7 @@ public void loadToFFHBoxFirst3(){
        ListAccessories.getChildren().set(2, AccessoriesM);
        ListAccessories.getChildren().set(3, AccessoriesN); 
        System.out.println(CurrentNodeA.getName());
-    }
-    
+    }    
     public EmojiImage moveAListFoward(){  
         for(int i=0;lAccessories.size()>i;i++){
         if(lAccessories.get(i).equals(CurrentNodeA)){
