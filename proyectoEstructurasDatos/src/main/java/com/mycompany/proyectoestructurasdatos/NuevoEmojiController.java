@@ -228,8 +228,8 @@ public class NuevoEmojiController implements Initializable {
         if(lEyes.get(i).equals(CurrentNodeE)){
         String e = lEyes.get(i).getName();
         System.out.println(e);
+        DeleteFromTXT("eyes.txt",e);
         lEyes.remove(i);
-        //DeleteFromTXT("eyes.txt",e);
         loadToEDHBox();
         }
         }
@@ -239,8 +239,8 @@ public class NuevoEmojiController implements Initializable {
         if(lMouth.get(i).equals(CurrentNodeM)){
         String e = lMouth.get(i).getName();
         System.out.println(e);
-        lMouth.remove(i);
-        //DeleteFromTXT("mouth.txt",e);
+        DeleteFromTXT("mouth.txt",e);
+        lMouth.remove(i); 
         loadToMDHBox();
         }}
         }
@@ -249,8 +249,8 @@ public class NuevoEmojiController implements Initializable {
         if(lEyebrows.get(i).equals(CurrentNodeEb)){
         String e = lEyebrows.get(i).getName();
         System.out.println(e);
+        DeleteFromTXT("eyebrows.txt",e);
         lEyebrows.remove(i);
-        //DeleteFromTXT("eyebrows.txt",e);
         loadToEbDHBox();
         }}    
         }
@@ -259,8 +259,8 @@ public class NuevoEmojiController implements Initializable {
         if(lAccessories.get(i).equals(CurrentNodeA)){
         String e = lAccessories.get(i).getName();
         System.out.println(e);
+        DeleteFromTXT("accessories.txt",e);
         lAccessories.remove(i);
-        //DeleteFromTXT("accessories.txt",e);
         loadToADHBox();
         }}
         }
@@ -931,7 +931,7 @@ public void loadToFFHBoxFirst3(){
        refreshEmojiSet();
     }
     
-    public void loadToAFHBox(){   
+    public void loadToADHBox(){   
        CurrentNodeA=PreviousNodeA;
        NextNodeA=moveAListFoward();
        PreviousNodeA=moveAListBack();
@@ -949,7 +949,7 @@ public void loadToFFHBoxFirst3(){
        ListAccessories.getChildren().set(3, AccessoriesN); 
        System.out.println(CurrentNodeA.getName());
     }
-    public void loadToADHBox(){   
+    public void loadToAFHBox(){   
        PreviousNodeA=CurrentNodeA;
        CurrentNodeA=moveAListFoward();  
        NextNodeA=moveAListFoward();
