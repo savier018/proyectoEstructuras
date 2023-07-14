@@ -142,7 +142,7 @@ public class AgregarImagenController implements Initializable {
         this.cmbTipos.getItems().add("eyes");
         this.cmbTipos.getItems().add("mouth");
         this.cmbTipos.getItems().add("accesories");
-        this.cmbTipos.getItems().add("eyesbrows");
+        this.cmbTipos.getItems().add("eyebrows");
         
     }
     @FXML

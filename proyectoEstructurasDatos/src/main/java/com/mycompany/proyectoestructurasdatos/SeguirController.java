@@ -79,10 +79,14 @@ public class SeguirController implements Initializable {
       ImageView Face= (ImageView)EmojiSetA.getChildren();
       ImageView Eyes=(ImageView)EmojiSetA.getChildren();
       ImageView Mouth=(ImageView)EmojiSetA.getChildren();
+      ImageView Accessories = (ImageView)EmojiSetA.getChildren();
+      ImageView Eyebrows = (ImageView)EmojiSetA.getChildren();
       NuevoEmojiController.f=true;
       NuevoEmojiController.EyesS=Eyes;
       NuevoEmojiController.MouthS=Mouth;
       NuevoEmojiController.FaceS=Face;
+      NuevoEmojiController.AccessoriesS = Accessories;
+      NuevoEmojiController.EyebrowsS = Eyebrows;
    }
    
     @FXML
