@@ -110,11 +110,12 @@ public class AgregarImagenController implements Initializable {
         String tipo = (String) cmbTipos.getValue();
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(String.format("src/main/resources/text/%s.txt",tipo)));){
            for(int i = 0;i<listaDeSI.size();i++){             
-                bw.newLine();
-                bw.write(listaDeSI.get(i));
+               bw.write(listaDeSI.get(i)); 
+               bw.newLine();
+                
             }
-            bw.newLine();
             bw.write(selectedFile.getName().replace(".png",""));
+            bw.newLine(); 
         }catch (IOException e){
             System.out.println("error");
         }
